@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=DotGothic16&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Signika&display=swap");
+
+header {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+  font-family: "Signika", sans-serif;
+}
+
+img {
+  width: 4.5%;
+  padding-left: 3%;
+}
+
+input {
+  margin-left: 2%;
+  width: 20%;
+  font-family: "Signika", sans-serif;
+  border: none;
+  border-radius: 15px;
+  background-color: #f0f2f5;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.list {
+  display: flex;
+  margin-left: auto;
+  margin-right: 5%;
+}
+
+ul {
+  display: flex;
+  float: left;
+  list-style: none;
+}
+
+ul,
+li {
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 1.4em;
+}
+
+i {
+  padding: 7px;
+  border-radius: 15px;
+  color: #2c3892;
+}
