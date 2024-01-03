@@ -2,8 +2,11 @@ const express = require("express");
 const routes = express.Router();
 
 //Requires
-const indexController = require("./src/controllers/ControllerIndex");
+const ControllerIndex = require("./src/controllers/ControllerIndex");
+const ControllerHome = require("./src/controllers/ControllerHome");
 
-routes.get("/", indexController.paginaIndex);
+routes.get("/", ControllerIndex.paginaIndex);
+
+routes.get("/home", ControllerHome.paginaHome);
 
 module.exports = routes;
