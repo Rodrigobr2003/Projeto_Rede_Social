@@ -1,0 +1,31 @@
+footer {
+  background-color: #222222;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+
+.icone {
+  border: 2px solid white;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 30px;
+}
+
+.contato {
+  width: 80%;
+}
+
+.redes a {
+  text-decoration: none;
+  color: white;
+}
+
+.contato:has(p) {
+  font-size: 1.5em;
+  white-space: nowrap;
+}
