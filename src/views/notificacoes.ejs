@@ -1,5 +1,81 @@
 <%- include('includes/head') %> <%- include('includes/header') %>
 
-<h2>NOTIFICAÇÕES</h2>
+<section>
+  <div class="feed">
+    <div id="feed-default" class="feed-default">
+      <div class="feed-top">
+        <a href="/home"><i class="fa-solid fa-chevron-left"></i></a>
+
+        <h2>Todas notificações</h2>
+      </div>
+
+      <div class="perfil-amigo">
+        <div class="perfil-feed">
+          <img class="foto-perfil" src="/profile-default.png" />
+
+          <div class="infos">
+            <p class="userName">NOME USER fez um pedido de amizade</p>
+          </div>
+
+          <div class="resposta">
+            <button>Aceitar</button>
+            <button>Negar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="perfil-amigo">
+        <div class="perfil-feed">
+          <img class="foto-perfil" src="/profile-default.png" />
+
+          <div class="infos">
+            <p class="userName">NOME USER fez um pedido de amizade</p>
+          </div>
+
+          <div class="resposta">
+            <button>Aceitar</button>
+            <button>Negar</button>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        let feed = document.getElementById("feed-default");
+
+        for (let i = 0; i < 3; i++) {
+          const divPerfilAmigo = document.createElement("div");
+          divPerfilAmigo.classList.add("perfil-amigo");
+
+          const divPerfilFeed = document.createElement("div");
+          divPerfilFeed.classList.add("perfil-feed");
+
+          const imgPerfil = document.createElement("img");
+          imgPerfil.classList.add("foto-perfil");
+          imgPerfil.src = "/profile-default.png";
+
+          const divInfos = document.createElement("div");
+          divInfos.classList.add("infos");
+
+          const nomeUsuario = document.createElement("p");
+          nomeUsuario.classList.add("userName");
+          nomeUsuario.textContent = "NOME USER compartilhou uma postagem";
+
+          const iconeTrash = document.createElement("i");
+          iconeTrash.classList.add("fa-solid", "fa-trash");
+
+          divInfos.appendChild(nomeUsuario);
+
+          divPerfilFeed.appendChild(imgPerfil);
+          divPerfilFeed.appendChild(divInfos);
+          divPerfilFeed.appendChild(iconeTrash);
+
+          divPerfilAmigo.appendChild(divPerfilFeed);
+
+          feed.appendChild(divPerfilAmigo);
+        }
+      </script>
+    </div>
+  </div>
+</section>
 
 <%- include('includes/footer') %>
