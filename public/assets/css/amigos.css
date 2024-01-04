@@ -1,0 +1,99 @@
+body {
+  background-image: linear-gradient(to top, #f0f2f5, #e6e7e9, #dedfe0, #d5d6d6);
+  background-repeat: no-repeat;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 55%;
+}
+
+.feed-top {
+  border-bottom: 1px solid gray;
+  padding: 5px 0 10px 0;
+  margin: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Signika", sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 1.2px;
+}
+
+.feed-top i {
+  padding: 5px;
+  border-radius: 5px;
+  color: #000;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.feed-top i:hover {
+  background-color: #d5d6d6;
+  transition: background-color 0.3s ease-in-out;
+}
+
+h2 {
+  margin: 0 60px;
+}
+
+.feed-default {
+  background-color: #fff;
+  align-self: flex-start;
+  padding: 20px 0px;
+  border-radius: 10px;
+  width: 80%;
+  margin: 0 auto;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.perfil-amigo {
+  margin: 15px 0;
+}
+
+.perfil-feed {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin: 0 13px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in;
+}
+
+.perfil-feed:hover {
+  background-color: #d5d6d6;
+  transition: background-color 0.3s ease-in;
+}
+
+.foto-perfil {
+  width: 10%;
+  margin-left: 3%;
+  border-radius: 30px;
+}
+
+.infos {
+  font-family: "Signika", sans-serif;
+  margin-left: 10px;
+}
+
+.infos p:nth-of-type(1) {
+  font-size: 1.1em;
+}
+
+.infos p:nth-of-type(2) {
+  font-size: 0.85em;
+}
+
+.perfil-amigo i {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* alinha à esquerda */
+  flex: 1;
+}
