@@ -1,5 +1,55 @@
 <%- include('includes/head') %> <%- include('includes/header') %>
 
-<h2>HOME</h2>
+<section>
+  <div class="feed">
+    <div class="feed-default">
+      <div class="perfil-feed">
+        <img class="foto-perfil" src="/profile-default.png" />
+
+        <input
+          type="text"
+          placeholder="Publique qualquer coisa, USER!"
+          class="input-atividade"
+        />
+      </div>
+
+      <div class="anexos">
+        <a href=""><i class="fa-solid fa-camera"></i>Vídeo</a>
+        <a href=""><i class="fa-regular fa-images"></i>Fotos</a>
+        <a href=""><i class="fa-solid fa-face-smile"></i>Sentimento</a>
+      </div>
+    </div>
+
+    <div class="feed-default publi">
+      <div class="perfil-feed">
+        <img class="foto-perfil" src="/profile-default.png" />
+
+        <div class="infos">
+          <p class="userName">NOME USER</p>
+          <p class="tempo">3 d</p>
+        </div>
+      </div>
+
+      <div class="div-desc">
+        <p>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+        </p>
+      </div>
+
+      <div class="div-media">
+        <img src="/photo-default.png" class="media" />
+      </div>
+
+      <div class="div-actions">
+        <i class="fa-regular fa-thumbs-up"><span>Curtir</span></i>
+        <i class="fa-regular fa-comment"><span>Comentar</span></i>
+        <i class="fa-regular fa-share-from-square"><span>Compartilhar</span></i>
+      </div>
+    </div>
+  </div>
+</section>
 
 <%- include('includes/footer') %>
