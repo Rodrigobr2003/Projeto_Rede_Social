@@ -38,6 +38,7 @@ section {
 
 .foto-perfil {
   width: 7%;
+  padding-left: 3%;
 }
 
 .input-atividade {
@@ -56,16 +57,25 @@ section {
   float: left;
   align-items: center;
   margin-top: 20px;
-  padding-right: 5px;
+  margin-right: 5px;
+  padding: 8px;
   text-decoration: none;
   font-family: "Signika", sans-serif;
   color: #000;
   font-size: 1.1em;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.anexos a:hover {
+  background-color: #dddee0;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 
 .anexos a i {
   font-size: 1.4em;
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 .anexos a:nth-child(1) i {
@@ -115,17 +125,30 @@ section {
 }
 
 .div-actions {
-  margin: 10px 25px;
+  margin: 15px 25px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .div-actions i {
   font-size: 1.7em;
   margin: 0 20px;
   cursor: pointer;
+  padding: 8px;
+  transition: background-color 0.4s ease;
 }
 
 .div-actions i span {
   font-size: 0.75em;
   padding-left: 10px;
   font-family: "Signika", sans-serif;
+}
+
+.div-actions i:hover {
+  background-color: #dddee0;
+  color: #2c3892;
+  padding: 8px;
+  border-radius: 8px;
+  transition: color 0.4s ease, background-color 0.4s ease;
 }
