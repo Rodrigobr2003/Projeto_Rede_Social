@@ -1,31 +1,34 @@
 <div class="cadastro-div" id="cadastro-div">
-  <div class="nome-sobrenome">
-    <input type="text" placeholder="Nome" />
-
-    <input type="text" placeholder="Sobrenome" />
-  </div>
-
-  <input type="text" placeholder="E-mail" />
-
-  <input type="password" placeholder="Senha" />
-
-  <label>Data de nascimento</label>
-  <input type="date" />
-
-  <label>Gênero</label>
-  <div class="genero">
-    <div>
-      <label>Masculino</label>
-      <input type="radio" id="masc" name="genero" />
+  <form action="/cadastro" method="POST">
+    <div class="nome-sobrenome">
+      <input type="text" placeholder="Nome" name="nome" />
+  
+      <input type="text" placeholder="Sobrenome" name="sobrenome" />
     </div>
-
-    <div>
-      <label>Feminino</label>
-      <input type="radio" id="fem" name="genero" />
+  
+    <input type="text" placeholder="E-mail" name="email" />
+  
+    <input type="password" placeholder="Senha" name="senha" />
+  
+    <label>Data de nascimento</label>
+    <input type="date" name="data" />
+  
+    <label>Gênero</label>
+    <div class="genero">
+      <div>
+        <label>Masculino</label>
+        <input type="radio" id="masc" name="genero" />
+      </div>
+  
+      <div>
+        <label>Feminino</label>
+        <input type="radio" id="fem" name="genero" />
+      </div>
     </div>
-  </div>
-
-  <div class="btn-div">
-    <button>Cadastre-se</button>
-  </div>
+  
+    <div class="btn-div">
+      <butto type="submit">Cadastre-se</button>
+    </div>
+  </form>
+  
 </div>
