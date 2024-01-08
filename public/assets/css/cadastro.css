@@ -25,6 +25,7 @@ input:focus {
   width: 70%;
   margin: 0px 10px;
   border-radius: 5px;
+  border: 1px solid rgb(88, 88, 88);
 }
 
 .cadastro-div input:not(.nome-sobrenome input) {
@@ -54,6 +55,7 @@ input:focus {
   font-size: 1.1em;
   margin: 0 5px;
   transition: background-color 0.4s ease-in-out;
+  color: #000;
 }
 
 .genero div:hover {
