@@ -5,7 +5,10 @@ const routes = require("./routes");
 const app = express();
 
 //Setando engine EJS
-app.set("views", path.resolve(__dirname, "src", "views"));
+app.set("views", [
+  path.resolve(__dirname, "src", "views"),
+  path.resolve(__dirname, "src", "views", "includes"),
+]);
 app.set("view engine", "ejs");
 
 //Caminhos CSS, Imagens e JS

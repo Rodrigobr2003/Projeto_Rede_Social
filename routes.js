@@ -7,8 +7,10 @@ const ControllerHome = require("./src/controllers/ControllerHome");
 const ControllerAmigos = require("./src/controllers/ControllerAmigos");
 const ControllerNotificacoes = require("./src/controllers/ControllerNotificacoes");
 const ControllerPerfil = require("./src/controllers/ControllerPerfil");
+const ControllerModalCadastro = require("./src/controllers/ControllerModalCadastro");
 
 routes.get("/", ControllerIndex.paginaIndex);
+routes.get("/modal-cadastro", ControllerModalCadastro.modalCadastro);
 
 routes.get("/home", ControllerHome.paginaHome);
 
