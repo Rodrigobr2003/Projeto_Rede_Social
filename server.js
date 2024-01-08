@@ -8,9 +8,10 @@ const app = express();
 app.set("views", path.resolve(__dirname, "src", "views"));
 app.set("view engine", "ejs");
 
-//Caminhos CSS e Imagens
+//Caminhos CSS, Imagens e JS
 app.use(express.static(path.resolve(__dirname, "public", "assets", "css")));
 app.use(express.static(path.resolve(__dirname, "public", "assets", "images")));
+app.use(express.static(path.resolve(__dirname, "public", "assets", "js")));
 
 //Utilitários
 app.use(routes);
