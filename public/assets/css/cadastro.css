@@ -11,6 +11,21 @@
   border-radius: 10px;
 }
 
+.btn-fechar-div {
+  display: flex;
+  padding: 0px;
+}
+
+.btn-fechar-div button {
+  margin: 0 0 5px 7px;
+  padding: 7px 12px;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.btn-fechar-div button:hover {
+  background-color: #bbbbbb;
+}
+
 input:focus {
   outline: none;
 }
