@@ -4,6 +4,13 @@ const express = require("express");
 const path = require("path");
 const routes = require("./routes");
 const mongoose = require("mongoose");
+const flash = require("connect-flash");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+
+const {
+  flashMessagesMiddleware,
+} = require("./src/middlewares/middlewaresGlobais");
 
 const app = express();
 
@@ -17,11 +24,6 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
-//Criando sessão
-const session = require("express-session");
-const MongoStore = require("connect-mongo");
-const flash = require("connect-flash");
 
 const sessionOptions = session({
   secret: process.env.SECRETKEY,
@@ -51,9 +53,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Utilitários
-app.use(routes);
-app.use(sessionOptions);
 app.use(flash());
+app.use(sessionOptions);
+app.use(flashMessagesMiddleware);
+app.use(routes);
 
 app.on("connection", () => {
   app.listen(3006, () => {
