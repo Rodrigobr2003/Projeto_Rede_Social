@@ -1,0 +1,11 @@
+<div class="align-div">
+  <% if(errors.length > 0) {%> <% errors.forEach(erro => { %>
+  <div class="msg-div error">
+    <h3><%= erro %></h3>
+  </div>
+  <% })%> <% } %> <% if(success.length > 0) {%>
+  <div class="msg-div success">
+    <h3><%= success %></h3>
+  </div>
+  <% } %>
+</div>

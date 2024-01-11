@@ -103,3 +103,39 @@ span {
 h3 {
   margin-top: 10%;
 }
+
+.align-div {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  top: 5%;
+}
+
+.msg-div {
+  display: flex;
+  margin: 10px auto;
+  padding: 0px;
+  height: 50px;
+  width: 40%;
+  align-items: center;
+  justify-content: center;
+  font-family: "Signika", sans-serif;
+  color: rgb(0, 0, 0);
+  border-radius: 3px 10px 10px 3px;
+  animation: alert 0.1s ease-in;
+}
+
+.msg-div h3 {
+  margin: 0;
+}
+
+.error {
+  border-left: 10px solid rgb(182, 5, 40);
+  background-color: rgb(218, 47, 56);
+}
+
+.success {
+  border-left: 10px solid rgb(26, 182, 5);
+  background-color: rgb(96, 218, 47);
+}

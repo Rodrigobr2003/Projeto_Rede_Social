@@ -24,9 +24,6 @@ class Cadastro {
 
     if (this.errors.length > 0) return;
 
-    //sempre que for mexer com base de dados
-    //a função q mexer c bd deve ser async e retornar await
-    //await deve estar envolvido em um try/catch
     try {
       this.user = await CadastroModel.create(this.body);
     } catch (error) {
