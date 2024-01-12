@@ -1,0 +1,70 @@
+.login-div {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+
+.btn-fechar-div {
+  display: flex;
+  padding: 0px;
+}
+
+.btn-fechar-div button {
+  margin: 0 0 5px 7px;
+  padding: 7px 12px;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.btn-fechar-div button:hover {
+  background-color: #bbbbbb;
+}
+
+.text-div {
+  display: flex;
+  align-items: center;
+}
+
+h2 {
+  margin: 0px auto;
+  color: #000;
+}
+
+input:focus {
+  outline: none;
+}
+
+.login-div input {
+  width: 90%;
+  margin: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(88, 88, 88);
+}
+
+.login-div label {
+  font-family: "Signika", sans-serif;
+  margin: 10px 0 0 10px;
+}
+
+.btn-div {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 0 0;
+}
+
+.btn-div button {
+  background-color: #51ade5;
+  letter-spacing: 0.8px;
+  transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+.btn-div button:hover {
+  color: azure;
+  background-color: #2c3892;
+}
