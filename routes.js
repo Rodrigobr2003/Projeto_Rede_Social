@@ -9,12 +9,14 @@ const ControllerNotificacoes = require("./src/controllers/ControllerNotificacoes
 const ControllerPerfil = require("./src/controllers/ControllerPerfil");
 const ControllerModalCadastro = require("./src/controllers/ControllerModalCadastro");
 const ControllerCadastro = require("./src/controllers/ControllerCadastro");
+const ControllerModalLogin = require("./src/controllers/ControllerModalLogin");
 const ControllerLogin = require("./src/controllers/ControllerLogin");
 
 //Routes index
 routes.get("/", ControllerIndex.paginaIndex);
 routes.get("/modal-cadastro", ControllerModalCadastro.modalCadastro);
-routes.get("/modal-login", ControllerLogin.modalLogin);
+routes.get("/modal-login", ControllerModalLogin.modalLogin);
+routes.post("/login", ControllerLogin.login);
 routes.post("/register", ControllerCadastro.register);
 
 //Routes home

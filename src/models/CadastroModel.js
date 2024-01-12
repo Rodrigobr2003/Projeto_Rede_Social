@@ -25,22 +25,18 @@ class Cadastro {
 
     if (this.errors.length > 0) return;
 
-    try {
-      const salt = bcrypt.genSaltSync();
-      this.body.senha = bcrypt.hashSync(this.body.senha, salt);
+    await this.userExist();
 
-      this.user = await CadastroModel.create(this.body);
-    } catch (error) {
-      console.log(error);
-    }
+    if (this.errors.length > 0) return;
+
+    const salt = bcrypt.genSaltSync();
+    this.body.senha = bcrypt.hashSync(this.body.senha, salt);
+
+    this.user = await CadastroModel.create(this.body);
   }
 
   validacao() {
     this.cleanUp();
-
-    if (this.errors.length > 0) return;
-
-    this.userExist();
 
     if (this.errors.length > 0) return;
 
@@ -71,6 +67,24 @@ class Cadastro {
     this.user = await CadastroModel.findOne({ email: this.body.email });
 
     if (this.user) this.errors.push("O email já foi cadastrado");
+  }
+
+  async login() {
+    this.validacao();
+
+    if (this.errors.length > 0) return;
+
+    this.user = await CadastroModel.findOne({ email: this.body.email });
+
+    if (!this.user) {
+      this.errors.push("Usuário não existe");
+      return;
+    }
+
+    if (!bcrypt.compareSync(this.body.senha, this.user.senha)) {
+      this.errors.push("Senha inválida ou incorreta");
+      return;
+    }
   }
 }
 
