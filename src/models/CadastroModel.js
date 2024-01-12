@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
+const bcrypt = require("bcrypt");
 
 const CadastroSchema = new mongoose.Schema({
   nome: { type: String, required: true },
@@ -25,6 +26,9 @@ class Cadastro {
     if (this.errors.length > 0) return;
 
     try {
+      const salt = bcrypt.genSaltSync();
+      this.body.senha = bcrypt.hashSync(this.body.senha, salt);
+
       this.user = await CadastroModel.create(this.body);
     } catch (error) {
       console.log(error);
@@ -33,6 +37,12 @@ class Cadastro {
 
   validacao() {
     this.cleanUp();
+
+    if (this.errors.length > 0) return;
+
+    this.userExist();
+
+    if (this.errors.length > 0) return;
 
     if (!validator.isEmail(this.body.email)) this.errors.push("Email inválido");
 
@@ -55,6 +65,12 @@ class Cadastro {
       data: this.body.data,
       genero: this.body.genero,
     };
+  }
+
+  async userExist() {
+    this.user = await CadastroModel.findOne({ email: this.body.email });
+
+    if (this.user) this.errors.push("O email já foi cadastrado");
   }
 }
 
