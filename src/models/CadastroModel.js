@@ -86,6 +86,14 @@ class Cadastro {
       return;
     }
   }
+
+  static async buscaId(id) {
+    if (typeof id !== "string") return;
+
+    const user = await CadastroModel.findById(id);
+
+    return user;
+  }
 }
 
 module.exports = Cadastro;
