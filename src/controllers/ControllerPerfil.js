@@ -10,7 +10,7 @@ exports.paginaPerfil = async (req, res) => {
     if (!user) res.render("Erro ao buscar id");
 
     res.render("perfil", {
-      pagina: "perfil",
+      pagina: "Perfil",
       css: "perfil",
       script: "",
       user,
