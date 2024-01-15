@@ -12,6 +12,9 @@ const ControllerCadastro = require("./src/controllers/ControllerCadastro");
 const ControllerModalLogin = require("./src/controllers/ControllerModalLogin");
 const ControllerLogin = require("./src/controllers/ControllerLogin");
 
+//Middlewares
+const { loginRequired } = require("./src/middlewares/middlewaresGlobais");
+
 //Routes index
 routes.get("/", ControllerIndex.paginaIndex);
 routes.get("/modal-cadastro", ControllerModalCadastro.modalCadastro);
@@ -20,15 +23,19 @@ routes.post("/login", ControllerLogin.login);
 routes.post("/register", ControllerCadastro.register);
 
 //Routes home
-routes.get("/home", ControllerHome.paginaHome);
+routes.get("/home", loginRequired, ControllerHome.paginaHome);
 
 //Routes amigos
-routes.get("/amigos", ControllerAmigos.paginaAmigos);
+routes.get("/amigos", loginRequired, ControllerAmigos.paginaAmigos);
 
 //Routes notificações
-routes.get("/notificacoes", ControllerNotificacoes.paginaNotificacoes);
+routes.get(
+  "/notificacoes",
+  loginRequired,
+  ControllerNotificacoes.paginaNotificacoes
+);
 
 //Routes perfil
-routes.get("/perfil/:id", ControllerPerfil.paginaPerfil);
+routes.get("/perfil/:id", loginRequired, ControllerPerfil.paginaPerfil);
 
 module.exports = routes;
