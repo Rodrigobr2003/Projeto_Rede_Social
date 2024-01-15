@@ -29,6 +29,6 @@ routes.get("/amigos", ControllerAmigos.paginaAmigos);
 routes.get("/notificacoes", ControllerNotificacoes.paginaNotificacoes);
 
 //Routes perfil
-routes.get("/perfil", ControllerPerfil.paginaPerfil);
+routes.get("/perfil/:id", ControllerPerfil.paginaPerfil);
 
 module.exports = routes;
