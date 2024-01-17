@@ -94,6 +94,15 @@ class Cadastro {
 
     return user;
   }
+
+  async recuperaDados(nome) {
+    let userName = nome;
+    this.user = await CadastroModel.find({ nome: userName }, { senha: 0 });
+
+    if (!this.user) return;
+
+    return this.user;
+  }
 }
 
 module.exports = Cadastro;

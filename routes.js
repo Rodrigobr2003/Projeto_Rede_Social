@@ -11,6 +11,7 @@ const ControllerModalCadastro = require("./src/controllers/ControllerModalCadast
 const ControllerCadastro = require("./src/controllers/ControllerCadastro");
 const ControllerModalLogin = require("./src/controllers/ControllerModalLogin");
 const ControllerLogin = require("./src/controllers/ControllerLogin");
+const ControllerPesquisa = require("./src/controllers/ControllerPesquisa");
 
 //Middlewares
 const { loginRequired } = require("./src/middlewares/middlewaresGlobais");
@@ -24,6 +25,8 @@ routes.post("/register", ControllerCadastro.register);
 
 //Routes home
 routes.get("/home", loginRequired, ControllerHome.paginaHome);
+
+routes.get("/pesquisa-user", ControllerPesquisa.pesquisaUser);
 
 //Routes amigos
 routes.get("/amigos", loginRequired, ControllerAmigos.paginaAmigos);
