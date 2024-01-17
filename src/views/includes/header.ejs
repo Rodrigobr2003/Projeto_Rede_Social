@@ -12,6 +12,7 @@
         type="text"
         name="pesquisa"
         placeholder="Pesquise no Orbee"
+        autocomplete="off"
       />
     </form>
 
@@ -21,11 +22,18 @@
   <script>
     const formSearchBar = document.querySelector(".form-pesquisa");
     const divPesquisa = document.querySelector(".div-pesquisa");
+    const input = document.querySelector("#inputPesquisa");
     let modalPesquisa = document.querySelector(".modal-pesquisa");
 
-    formSearchBar.addEventListener("input", async function (event) {
-      event.preventDefault();
+    formSearchBar.addEventListener("click", () => {
+      modalPesquisa.style.display = "flex";
+    });
 
+    input.addEventListener("blur", () => {
+      modalPesquisa.style.display = "none";
+    });
+
+    formSearchBar.addEventListener("input", async function (event) {
       if (modalPesquisa.childElementCount > 0) {
         while (modalPesquisa.firstChild) {
           modalPesquisa.removeChild(modalPesquisa.firstChild);
@@ -42,10 +50,6 @@
 
       const data = await respostaPesquisa.json();
       const users = data.user;
-
-      modalPesquisa = document.querySelector(".modal-pesquisa");
-
-      modalPesquisa.style.display = "flex";
 
       users.map((user) => {
         const divUser = document.createElement("div");
