@@ -25,12 +25,14 @@
     const input = document.querySelector("#inputPesquisa");
     let modalPesquisa = document.querySelector(".modal-pesquisa");
 
-    formSearchBar.addEventListener("click", () => {
+    formSearchBar.addEventListener("click", (event) => {
+      event.stopPropagation();
       modalPesquisa.style.display = "flex";
     });
 
-    input.addEventListener("blur", () => {
-      modalPesquisa.style.display = "none";
+    document.addEventListener("click", () => {
+      if ((modalPesquisa.style.display = "flex"))
+        modalPesquisa.style.display = "none";
     });
 
     formSearchBar.addEventListener("input", async function (event) {
@@ -42,7 +44,8 @@
 
       let pesquisa = document.querySelector("#inputPesquisa").value;
 
-      pesquisa = pesquisa.charAt(0).toUpperCase() + pesquisa.slice(1);
+      pesquisa =
+        pesquisa.charAt(0).toUpperCase() + pesquisa.slice(1).toLowerCase();
 
       const respostaPesquisa = await fetch(
         `/pesquisa-user?pesquisa=${encodeURIComponent(pesquisa)}`
@@ -52,8 +55,14 @@
       const users = data.user;
 
       users.map((user) => {
-        const divUser = document.createElement("div");
-        divUser.classList.add("div-user");
+        const idUser = user._id;
+
+        const formUser = document.createElement("form");
+        formUser.action = `/perfil/:${idUser}`;
+        formUser.method = "GET";
+
+        const button = document.createElement("button");
+        button.classList.add("div-user");
 
         const img = document.createElement("img");
         img.src = "/profile-default.png";
@@ -61,11 +70,14 @@
         const h4 = document.createElement("h4");
         h4.innerHTML = `${user.nome} ${user.sobrenome}`;
 
-        divUser.appendChild(img);
-        divUser.appendChild(h4);
-        modalPesquisa.appendChild(divUser);
+        formUser.appendChild(button);
 
-        divUser.style.display = "flex";
+        button.appendChild(img);
+        button.appendChild(h4);
+
+        modalPesquisa.appendChild(formUser);
+
+        button.style.display = "flex";
       });
     });
   </script>
