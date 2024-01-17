@@ -88,6 +88,9 @@ li {
   border-radius: 5px;
   align-items: center;
   cursor: pointer;
+  border: none;
+  font-family: "Signika", sans-serif;
+  font-size: 1em;
 }
 
 .div-user img {
@@ -97,4 +100,5 @@ li {
 
 .div-user h4 {
   margin-left: 10px;
+  font-weight: 0;
 }
