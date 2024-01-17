@@ -17,15 +17,29 @@
 
             <div class="infos">
               <img class="foto-perfil" src="/profile-default.png" />
-              <div class="detalhes-user">
-                <p class="userName"><%= user.nome %> <%= user.sobrenome%></p>
-                <p class="amigos">106 amigos</p>
+              <div class="feed-middle">
+                <div class="detalhes-user">
+                  <p class="userName"><%= user.nome %> <%= user.sobrenome%></p>
+                  <p class="amigos">106 amigos</p>
+                </div>
+
+                <div class="interacao">
+                  <button><i class="fa-solid fa-user-plus"></i></button>
+                  <button><i class="fa-solid fa-comment-dots"></i></button>
+                </div>
               </div>
+
               <div class="descricao-div">
-                <p class="descricao">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
+                <div class="descricao">
+                  <p class="descricao-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
+                </div>
+                <div class="editar-desc">
+                  <button><i class="fa-solid fa-pencil"></i></button>
+                </div>
               </div>
             </div>
           </div>
