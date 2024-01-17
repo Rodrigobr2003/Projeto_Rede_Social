@@ -18,9 +18,14 @@ header {
   padding-left: 3%;
 }
 
-input {
-  margin-left: 2%;
+.div-pesquisa {
   width: 20%;
+}
+
+input {
+  display: flex;
+  margin: 0 auto;
+  width: 85%;
   font-family: "Signika", sans-serif;
   border: none;
   border-radius: 15px;
@@ -60,4 +65,36 @@ li {
   background-color: #e2e3e6;
   color: #51ade5;
   transition: background-color 0.4s ease-out, color 0.2s ease-in;
+}
+
+.modal-pesquisa {
+  background-color: #c6caca;
+  display: none;
+  margin: 8px auto;
+  position: absolute;
+  align-items: center;
+  width: 20%;
+  height: 40%;
+  border-radius: 10px;
+  flex-direction: column;
+}
+
+.div-user {
+  display: none;
+  background-color: #fff;
+  width: 85%;
+  margin: 8px auto;
+  padding: 10px;
+  border-radius: 5px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.div-user img {
+  width: 17%;
+  border-radius: 20px;
+}
+
+.div-user h4 {
+  margin-left: 10px;
 }

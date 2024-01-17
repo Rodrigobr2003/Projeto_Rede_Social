@@ -5,7 +5,66 @@
   ></script>
   <img class="logo" src="/logo.svg" />
 
-  <input type="text" placeholder="Pesquise no Orbee" />
+  <div class="div-pesquisa">
+    <form class="form-pesquisa">
+      <input
+        id="inputPesquisa"
+        type="text"
+        name="pesquisa"
+        placeholder="Pesquise no Orbee"
+      />
+    </form>
+
+    <div class="modal-pesquisa"></div>
+  </div>
+
+  <script>
+    const formSearchBar = document.querySelector(".form-pesquisa");
+    const divPesquisa = document.querySelector(".div-pesquisa");
+    let modalPesquisa = document.querySelector(".modal-pesquisa");
+
+    formSearchBar.addEventListener("input", async function (event) {
+      event.preventDefault();
+
+      if (modalPesquisa.childElementCount > 0) {
+        while (modalPesquisa.firstChild) {
+          modalPesquisa.removeChild(modalPesquisa.firstChild);
+        }
+      }
+
+      let pesquisa = document.querySelector("#inputPesquisa").value;
+
+      pesquisa = pesquisa.charAt(0).toUpperCase() + pesquisa.slice(1);
+
+      const respostaPesquisa = await fetch(
+        `/pesquisa-user?pesquisa=${encodeURIComponent(pesquisa)}`
+      );
+
+      const data = await respostaPesquisa.json();
+      const users = data.user;
+
+      modalPesquisa = document.querySelector(".modal-pesquisa");
+
+      modalPesquisa.style.display = "flex";
+
+      users.map((user) => {
+        const divUser = document.createElement("div");
+        divUser.classList.add("div-user");
+
+        const img = document.createElement("img");
+        img.src = "/profile-default.png";
+
+        const h4 = document.createElement("h4");
+        h4.innerHTML = `${user.nome} ${user.sobrenome}`;
+
+        divUser.appendChild(img);
+        divUser.appendChild(h4);
+        modalPesquisa.appendChild(divUser);
+
+        divUser.style.display = "flex";
+      });
+    });
+  </script>
 
   <div class="list">
     <ul>
