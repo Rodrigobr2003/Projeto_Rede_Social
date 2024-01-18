@@ -6,6 +6,8 @@ exports.pesquisaUser = async (req, res) => {
 
     await users.recuperaDados(req.query.pesquisa);
 
+    req.session.pesquisa = users;
+
     res.json(users);
   } catch (err) {
     console.log("Erro ao pesquisar por usuários", err);

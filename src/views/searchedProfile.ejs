@@ -11,25 +11,27 @@
                 class="background-image"
                 src="/background-photo-default.png"
               />
-
-              <button class="edit-button">Editar foto</button>
             </div>
 
             <div class="infos">
               <img class="foto-perfil" src="/profile-default.png" />
               <div class="feed-middle">
                 <div class="detalhes-user">
-                  <p class="userName"><%= user.nome %> <%= user.sobrenome%></p>
+                  <p class="userName">
+                    <%= searchedProfile.nome %> <%= searchedProfile.sobrenome%>
+                  </p>
                   <p class="amigos">106 amigos</p>
+                </div>
+
+                <div class="interacao">
+                  <button><i class="fa-solid fa-user-plus"></i></button>
+                  <button><i class="fa-solid fa-comment-dots"></i></button>
                 </div>
               </div>
 
               <div class="descricao-div">
                 <div class="descricao">
-                  <p class="descricao-text"><%= user.descricao %></p>
-                </div>
-                <div class="editar-desc">
-                  <button><i class="fa-solid fa-pencil"></i></button>
+                  <p class="descricao-text"><%= searchedProfile.descricao %></p>
                 </div>
               </div>
             </div>

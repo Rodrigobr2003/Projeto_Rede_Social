@@ -9,6 +9,7 @@ const CadastroSchema = new mongoose.Schema({
   senha: { type: String, required: true },
   data: { type: Date, required: true },
   genero: { type: String, required: true },
+  descricao: { type: String, required: false, default: "" },
 });
 
 const CadastroModel = mongoose.model("Cadastro", CadastroSchema);
@@ -60,6 +61,7 @@ class Cadastro {
       senha: this.body.senha,
       data: this.body.data,
       genero: this.body.genero,
+      descricao: this.body.descricao,
     };
   }
 

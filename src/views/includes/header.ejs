@@ -58,7 +58,7 @@
         const idUser = user._id;
 
         const formUser = document.createElement("form");
-        formUser.action = `/perfil/:${idUser}`;
+        formUser.action = `/searched-user/${idUser}`;
         formUser.method = "GET";
 
         const button = document.createElement("button");
@@ -69,6 +69,7 @@
 
         const h4 = document.createElement("h4");
         h4.innerHTML = `${user.nome} ${user.sobrenome}`;
+        h4.style.color = "black";
 
         formUser.appendChild(button);
 
@@ -94,7 +95,7 @@
         <a href="/notificacoes"><i class="fa-solid fa-bell nav-icon"></i></a>
       </li>
       <li>
-        <a href="/perfil/<%= user._id %>"
+        <a href="/perfil/:<%= user._id%>"
           ><i class="fa-solid fa-user nav-icon"></i
         ></a>
       </li>
