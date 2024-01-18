@@ -102,17 +102,20 @@ h2 {
 }
 
 .detalhes-user {
-  margin: 0 0 0 100px;
   display: flex;
   float: left;
   flex-direction: column;
+}
+
+.add {
+  margin: 0 0 0 120px;
 }
 
 .interacao {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0 0 30px;
+  margin: 0 0 0 20px;
 }
 
 button {
