@@ -1,6 +1,6 @@
 const CadastroModel = require("../models/CadastroModel");
 
-exports.paginaPerfil = async (req, res) => {
+exports.  paginaPerfil = async (req, res) => {
   req.params._id = req.params.id.replace(":", "");
   try {
     if (!req.params._id) return res.send("Erro ao carregar pagina perfil");
@@ -12,7 +12,7 @@ exports.paginaPerfil = async (req, res) => {
     res.render("perfil", {
       pagina: `Perfil - ${user.nome} ${user.sobrenome}`,
       css: "perfil",
-      script: "",
+      script: "perfil",
       user,
     });
   } catch (error) {

@@ -105,6 +105,14 @@ class Cadastro {
 
     return this.user;
   }
+
+  async editar(id) {
+    if (this.errors.length > 0) return;
+
+    this.user = await CadastroModel.findByIdAndUpdate(id, this.body, {
+      new: true,
+    });
+  }
 }
 
 module.exports = Cadastro;
