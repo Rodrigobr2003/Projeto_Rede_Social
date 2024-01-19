@@ -156,11 +156,36 @@ button {
   align-items: center;
 }
 
-.editar-desc button:nth-of-type(1) {
+.btn {
   background: none;
   color: #2c3892;
   font-size: 1em;
   padding: 5px;
+}
+
+.back {
+  display: none;
+}
+
+.div-form {
+  display: flex;
+}
+
+.desc-input {
+  background: none;
+  border-bottom: 2px solid gray;
+  border-radius: 0px;
+  width: 350px;
+  margin: 0 10px;
+  display: none;
+}
+
+.save-desc {
+  border-radius: 7px;
+  padding: 5px 15px;
+  margin: 0 15px 0 0;
+  display: none;
+  background-color: #2c3892;
 }
 
 .feed-bottom {

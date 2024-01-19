@@ -29,7 +29,25 @@
                   <p class="descricao-text"><%= user.descricao %></p>
                 </div>
                 <div class="editar-desc">
-                  <button><i class="fa-solid fa-pencil"></i></button>
+                  <button class="btn edit">
+                    <i class="fa-solid fa-pencil"></i>
+                  </button>
+
+                  <button class="btn back">
+                    <i class="fa-solid fa-angle-left"></i>
+                  </button>
+
+                  <form action="/edit-user" method="POST" class="div-form">
+                    <input
+                      type="text"
+                      placeholder="Escreva sua descrição..."
+                      class="desc-input"
+                      name="descricao"
+                      autocomplete="off"
+                    />
+
+                    <button type="submit" class="save-desc">Salvar</button>
+                  </form>
                 </div>
               </div>
             </div>

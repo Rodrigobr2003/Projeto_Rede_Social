@@ -13,6 +13,7 @@ const ControllerModalLogin = require("./src/controllers/ControllerModalLogin");
 const ControllerLogin = require("./src/controllers/ControllerLogin");
 const ControllerPesquisa = require("./src/controllers/ControllerPesquisa");
 const ControllerSearchedProfile = require("./src/controllers/ControllerSearchedProfile");
+const ControllerEditUser = require("./src/controllers/ControllerEditarPerfil");
 
 //Middlewares
 const { loginRequired } = require("./src/middlewares/middlewaresGlobais");
@@ -46,5 +47,6 @@ routes.get(
 
 //Routes perfil
 routes.get("/perfil/:id", loginRequired, ControllerPerfil.paginaPerfil);
+routes.post("/edit-user", ControllerEditUser.editUser);
 
 module.exports = routes;
