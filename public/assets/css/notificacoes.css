@@ -58,8 +58,16 @@ h2 {
   margin: 15px 0;
 }
 
-.perfil-feed {
+.aviso-notif {
   display: flex;
+  justify-content: center;
+  font-family: "Signika", sans-serif;
+  font-size: 1.2em;
+  display: none;
+}
+
+.perfil-feed {
+  display: none;
   align-items: center;
   padding: 20px;
   margin: 0 13px;
@@ -115,18 +123,18 @@ h2 {
   font-size: 0.95em;
 }
 
-.resposta button:nth-of-type(1) {
+.aceitar {
   background-color: #51ade5;
 }
 
-.resposta button:nth-of-type(1):hover {
+.aceitar:hover {
   background-color: #65d0f1;
 }
 
-.resposta button:nth-of-type(2) {
+.negar {
   background-color: #b6b6b6;
 }
 
-.resposta button:nth-of-type(2):hover {
+.negar:hover {
   background-color: #8c8d8d;
 }

@@ -34,9 +34,12 @@ routes.get(
   "/searched-user/:id",
   ControllerSearchedProfile.paginaPerfilPesquisado
 );
+routes.post("/adicionar-amigo", ControllerSearchedProfile.adicionarAmigo);
+routes.post("/remover-amigo", ControllerSearchedProfile.removerAmigo);
 
 //Routes amigos
 routes.get("/amigos", loginRequired, ControllerAmigos.paginaAmigos);
+routes.get("/carrega-amigos", ControllerAmigos.amigos);
 
 //Routes notificações
 routes.get(
@@ -44,6 +47,9 @@ routes.get(
   loginRequired,
   ControllerNotificacoes.paginaNotificacoes
 );
+routes.get("/mostrar-notificacoes", ControllerNotificacoes.notficacoes);
+routes.post("/negar-amigo", ControllerNotificacoes.negar);
+routes.post("/aceitar-amigo", ControllerNotificacoes.aceitar);
 
 //Routes perfil
 routes.get("/perfil/:id", loginRequired, ControllerPerfil.paginaPerfil);

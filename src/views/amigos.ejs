@@ -9,58 +9,19 @@
         <h2>Todos seus amigos</h2>
       </div>
 
-      <script>
-        let feed = document.getElementById("feed-default");
+      <div class="perfil-amigo">
+        <p class="aviso-notif">Você ainda não tem amigos...</p>
 
-        for (let i = 0; i < 3; i++) {
-          const divPerfilAmigo = document.createElement("div");
-          divPerfilAmigo.classList.add("perfil-amigo");
-
-          const divPerfilFeed = document.createElement("div");
-          divPerfilFeed.classList.add("perfil-feed");
-
-          const imgPerfil = document.createElement("img");
-          imgPerfil.classList.add("foto-perfil");
-          imgPerfil.src = "/profile-default.png";
-
-          const divInfos = document.createElement("div");
-          divInfos.classList.add("infos");
-
-          const nomeUsuario = document.createElement("p");
-          nomeUsuario.classList.add("userName");
-          nomeUsuario.textContent = "NOME USER";
-
-          const conexaoComum = document.createElement("p");
-          conexaoComum.classList.add("tempo");
-          conexaoComum.textContent = "30 conexões em comum";
-
-          const iconeEllipsis = document.createElement("i");
-          iconeEllipsis.classList.add("fa-solid", "fa-ellipsis");
-
-          divInfos.appendChild(nomeUsuario);
-          divInfos.appendChild(conexaoComum);
-
-          divPerfilFeed.appendChild(imgPerfil);
-          divPerfilFeed.appendChild(divInfos);
-          divPerfilFeed.appendChild(iconeEllipsis);
-
-          divPerfilAmigo.appendChild(divPerfilFeed);
-
-          feed.appendChild(divPerfilAmigo);
-        }
-      </script>
-
-      <!-- <div class="perfil-amigo">
         <div class="perfil-feed">
           <img class="foto-perfil" src="/profile-default.png" />
 
           <div class="infos">
-            <p class="userName">NOME USER</p>
-            <p class="tempo">30 conexões em comum</p>
+            <p class="userName"></p>
+            <p class="conexoes"></p>
           </div>
           <i class="fa-solid fa-ellipsis"></i>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </section>

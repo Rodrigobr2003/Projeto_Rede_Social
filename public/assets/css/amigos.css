@@ -59,12 +59,20 @@ h2 {
 }
 
 .perfil-feed {
-  display: flex;
+  display: none;
   align-items: center;
   padding: 20px;
   margin: 0 13px;
   border-radius: 10px;
   transition: background-color 0.3s ease-in;
+}
+
+.aviso-notif {
+  display: none;
+  justify-content: center;
+  font-family: "Signika", sans-serif;
+  font-size: 1.2em;
+  display: none;
 }
 
 .perfil-feed:hover {

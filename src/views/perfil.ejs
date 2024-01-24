@@ -20,7 +20,11 @@
               <div class="feed-middle">
                 <div class="detalhes-user">
                   <p class="userName"><%= user.nome %> <%= user.sobrenome%></p>
-                  <p class="amigos">106 amigos</p>
+
+                  <p class="amigos">
+                    <% if(user.amigos.length == 1) {%> <%= user.amigos.length %>
+                    amigo <% } else{%> <%= user.amigos.length %> amigos <% }%>
+                  </p>
                 </div>
               </div>
 
