@@ -10,6 +10,8 @@ const CadastroSchema = new mongoose.Schema({
   data: { type: Date, required: true },
   genero: { type: String, required: true },
   descricao: { type: String, required: false, default: "" },
+  amigos: { type: Array, required: false, default: [] },
+  notificacoes: { type: Array, required: false, default: [] },
 });
 
 const CadastroModel = mongoose.model("Cadastro", CadastroSchema);
@@ -62,6 +64,8 @@ class Cadastro {
       data: this.body.data,
       genero: this.body.genero,
       descricao: this.body.descricao,
+      amigos: this.body.amigos,
+      notificacoes: this.body.notificacoes,
     };
   }
 
@@ -112,6 +116,80 @@ class Cadastro {
     this.user = await CadastroModel.findByIdAndUpdate(id, this.body, {
       new: true,
     });
+  }
+
+  async adicionarNotificacao(id) {
+    if (this.errors.length > 0) return;
+
+    this.user = await CadastroModel.findById(id);
+
+    this.user = await CadastroModel.findByIdAndUpdate(
+      id,
+      { $addToSet: { notificacoes: this.body } },
+      { new: true }
+    );
+
+    return this.user;
+  }
+
+  async removerPedidoAmigo(id, index) {
+    if (this.errors.length > 0) return;
+
+    this.user = await CadastroModel.findById(id);
+
+    this.user = await CadastroModel.findByIdAndUpdate(
+      id,
+      { $pull: { notificacoes: this.user.notificacoes[index] } },
+      { new: true }
+    );
+
+    return this.user;
+  }
+
+  async aceitarPedidoAmigo(id, index, idAmigo, dataUser) {
+    if (this.errors.length > 0) return;
+
+    this.user = await CadastroModel.findById(id);
+
+    this.user = await CadastroModel.findByIdAndUpdate(
+      id,
+      { $addToSet: { amigos: this.body } },
+      { new: true }
+    );
+
+    let amigo = await CadastroModel.findById(idAmigo);
+
+    amigo = await CadastroModel.findByIdAndUpdate(
+      idAmigo,
+      { $addToSet: { amigos: dataUser } },
+      { new: true }
+    );
+
+    await this.removerPedidoAmigo(id, index);
+
+    return this.user;
+  }
+
+  async removerAmigo(userId, index, idAmigo, indexAmigo) {
+    if (this.errors.length > 0) return;
+
+    this.user = await CadastroModel.findById(userId);
+
+    this.user = await CadastroModel.findByIdAndUpdate(
+      userId,
+      { $pull: { amigos: this.user.amigos[index] } },
+      { new: true }
+    );
+
+    let amigo = await CadastroModel.findById(idAmigo);
+
+    amigo = await CadastroModel.findByIdAndUpdate(
+      idAmigo,
+      { $pull: { amigos: amigo.amigos[indexAmigo] } },
+      { new: true }
+    );
+
+    return this.user;
   }
 }
 
