@@ -36,6 +36,7 @@ routes.get(
 );
 routes.post("/adicionar-amigo", ControllerSearchedProfile.adicionarAmigo);
 routes.post("/remover-amigo", ControllerSearchedProfile.removerAmigo);
+routes.get("/mostra-amigos", ControllerSearchedProfile.amigosSearchedProfile);
 
 //Routes amigos
 routes.get("/amigos", loginRequired, ControllerAmigos.paginaAmigos);
@@ -54,5 +55,6 @@ routes.post("/aceitar-amigo", ControllerNotificacoes.aceitar);
 //Routes perfil
 routes.get("/perfil/:id", loginRequired, ControllerPerfil.paginaPerfil);
 routes.post("/edit-user", ControllerEditUser.editUser);
+routes.get("/dados-user", ControllerPerfil.dadosUser);
 
 module.exports = routes;

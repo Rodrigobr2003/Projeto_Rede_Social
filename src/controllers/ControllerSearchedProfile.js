@@ -8,7 +8,7 @@ exports.paginaPerfilPesquisado = async (req, res) => {
     await res.render(`perfil`, {
       pagina: "Perfil",
       css: "perfil",
-      script: "perfil",
+      script: "perfilPesquisado",
     });
     return;
   }
@@ -20,7 +20,7 @@ exports.paginaPerfilPesquisado = async (req, res) => {
   res.render("searchedProfile", {
     pagina: `Perfil - ${searchedProfile.nome} ${searchedProfile.sobrenome}`,
     css: "perfil",
-    script: "",
+    script: "perfilPesquisado",
     searchedProfile,
   });
 };
@@ -59,7 +59,7 @@ exports.adicionarAmigo = async (req, res) => {
     res.render("searchedProfile", {
       pagina: `Perfil - ${sessionData[0].nome} ${sessionData[0].sobrenome}`,
       css: "perfil",
-      script: "",
+      script: "perfilPesquisado",
       searchedProfile,
     });
   } catch (error) {
@@ -109,10 +109,19 @@ exports.removerAmigo = async (req, res) => {
     res.render("searchedProfile", {
       pagina: `Perfil - ${sessionData[0].nome} ${sessionData[0].sobrenome}`,
       css: "perfil",
-      script: "",
+      script: "perfilPesquisado",
       searchedProfile,
     });
   } catch (error) {
     console.log("Erro ao excluir amigo", error);
   }
+};
+
+exports.amigosSearchedProfile = async (req, res) => {
+  const nomeProfile = req.session.pesquisa.user[0].nome;
+
+  let pesquisaUserBd = new Cadastro();
+  pesquisaUserBd = await pesquisaUserBd.recuperaDados(nomeProfile);
+
+  res.json(pesquisaUserBd);
 };
