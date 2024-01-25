@@ -22,37 +22,30 @@
                       <%= searchedProfile.nome %> <%=
                       searchedProfile.sobrenome%>
                     </p>
-                    <p class="amigos">
-                      <% if(searchedProfile.amigos.length == 1) {%> <%=
-                      user.amigos.length %> amigo <% } else{%> <%=
-                      searchedProfile.amigos.length %> amigos <% }%>
-                    </p>
+                    <p class="amigos"></p>
                   </div>
                 </div>
 
                 <div class="interacao">
-                  <% if (searchedProfile.amigos.some(amigo =>
-                  amigo.idSolicitante === user._id)) { %>
                   <form
                     action="/remover-amigo"
                     method="POST"
-                    id="form-add-amigo"
+                    id="form-remove-amigo"
                   >
                     <button type="submit" value="0">
                       <i class="fa-solid fa-user-minus" id="icon"></i>
                     </button>
                   </form>
-                  <% } else { %>
+
                   <form
                     action="/adicionar-amigo"
                     method="POST"
-                    id="form-remove-amigo"
+                    id="form-add-amigo"
                   >
                     <button type="submit" value="1">
                       <i class="fa-solid fa-user-plus" id="icon"></i>
                     </button>
                   </form>
-                  <% } %>
 
                   <button><i class="fa-solid fa-comment-dots"></i></button>
                 </div>

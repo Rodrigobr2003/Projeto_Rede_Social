@@ -118,6 +118,14 @@ h2 {
   margin: 0 0 0 20px;
 }
 
+#form-add-amigo {
+  display: none;
+}
+
+#form-remove-amigo {
+  display: none;
+}
+
 button {
   background-color: #51ade5;
   margin: 0px 2px;
