@@ -125,3 +125,11 @@ exports.amigosSearchedProfile = async (req, res) => {
 
   res.json(pesquisaUserBd);
 };
+
+exports.chatProfile = (req, res) => {
+  res.render("chatProfile", {
+    pagina: "Chat",
+    css: "chat",
+    script: "chat",
+  });
+};

@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let dataArquivoLogin = false;
 
   btnCadastro.addEventListener("click", () => {
+    let arquivo = "cadastro";
     if (!dataArquivoCadastro) {
-      let arquivo = "cadastro";
       fetch("/modal-cadastro")
         .then((response) => response.text())
         .then((data) => {
