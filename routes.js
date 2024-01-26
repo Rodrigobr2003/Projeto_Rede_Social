@@ -37,7 +37,10 @@ routes.get(
 routes.post("/adicionar-amigo", ControllerSearchedProfile.adicionarAmigo);
 routes.post("/remover-amigo", ControllerSearchedProfile.removerAmigo);
 routes.get("/mostra-amigos", ControllerSearchedProfile.amigosSearchedProfile);
-routes.get("/chat-profile", ControllerSearchedProfile.chatProfile);
+routes.get(
+  "/searched-user/:id/chat-profile",
+  ControllerSearchedProfile.chatProfile
+);
 
 //Routes amigos
 routes.get("/amigos", loginRequired, ControllerAmigos.paginaAmigos);

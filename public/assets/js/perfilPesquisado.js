@@ -16,6 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const userPesquisado = await response1.json();
       const dataUser = await response2.json();
 
+      let userPesquisadoId = userPesquisado[0]._id;
+
+      const formChat = document.querySelector(".form-chat");
+      formChat.action = `/searched-user/:${userPesquisadoId}/chat-profile`;
+
       const amigos = userPesquisado[0].amigos;
 
       if (amigos.length === 0) formAdd.style.display = "flex";
