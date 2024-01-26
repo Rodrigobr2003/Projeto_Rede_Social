@@ -38,6 +38,11 @@ h2 {
   align-items: center;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .btn-volta {
   border: none;
   background: none;
