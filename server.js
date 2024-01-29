@@ -7,12 +7,16 @@ const mongoose = require("mongoose");
 const flash = require("connect-flash");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const http = require("http");
+const socketio = require("socket.io");
 
 const {
   flashMessagesMiddleware,
 } = require("./src/middlewares/middlewaresGlobais");
 
 const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
 
 //Conectando ao mongoDB
 mongoose
@@ -52,6 +56,24 @@ app.use(express.static(path.resolve(__dirname, "public", "assets", "js")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//Conectando ao chat
+io.on("connection", (socket) => {
+  //Join chat
+  socket.on("joinChat", (nomePesquisado) => {
+    socket.broadcast.emit("alert", `${nomePesquisado} conectou-se`);
+
+    //Listener de mensagens
+    socket.on("chatMessage", (msg) => {
+      io.emit("message", msg);
+    });
+
+    //Disconnect chat
+    socket.on("disconnect", () => {
+      io.emit("alert", `${nomePesquisado} desconectou-se`);
+    });
+  });
+});
+
 //Utilitários
 app.use(flash());
 app.use(sessionOptions);
@@ -59,7 +81,7 @@ app.use(flashMessagesMiddleware);
 app.use(routes);
 
 app.on("connection", () => {
-  app.listen(3006, () => {
+  server.listen(3006, () => {
     console.log("Servidor está ligado");
     console.log(`Server esta operando: http://localhost:3006`);
   });
