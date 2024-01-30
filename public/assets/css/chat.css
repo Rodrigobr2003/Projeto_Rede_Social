@@ -67,7 +67,8 @@ a {
 .chat {
   display: flex;
   flex-direction: column;
-  height: 100px;
+  height: 400px;
+  overflow-y: scroll;
 }
 
 .friend-side {
