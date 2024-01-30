@@ -58,13 +58,18 @@ app.use(express.urlencoded({ extended: true }));
 
 //Conectando ao chat
 io.on("connection", (socket) => {
+  const idSocket = socket.id;
+
+  socket.emit("enviaId", idSocket);
+
   //Join chat
   socket.on("joinChat", (nomePesquisado) => {
     socket.broadcast.emit("alert", `${nomePesquisado} conectou-se`);
 
     //Listener de mensagens
     socket.on("chatMessage", (msg) => {
-      io.emit("message", msg);
+      const idSocket = socket.id;
+      io.emit("message", { msg, idSocket });
     });
 
     //Disconnect chat
