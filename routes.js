@@ -39,6 +39,7 @@ routes.post("/remover-amigo", ControllerSearchedProfile.removerAmigo);
 routes.get("/mostra-amigos", ControllerSearchedProfile.amigosSearchedProfile);
 routes.get(
   "/searched-user/:id/chat-profile",
+  loginRequired,
   ControllerSearchedProfile.chatProfile
 );
 
