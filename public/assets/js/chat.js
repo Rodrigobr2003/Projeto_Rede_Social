@@ -18,13 +18,24 @@ document.addEventListener("DOMContentLoaded", () => {
       const arrayperfilPesquisa = dataArray[1];
       const perfilPesquisa = arrayperfilPesquisa[0];
 
-      //Definindo room(idUser + idFriend)
-      const room = perfilUser.id;
+      //Função de criar room
+      function criarRoom(userId1, userId2) {
+        // Ordena os IDs dos usuários
+        const ordenarIds = [userId1, userId2].sort();
+
+        // Cria a room com IDs ordenados
+        const room = `${ordenarIds[0]}${ordenarIds[1]}`;
+
+        return room;
+      }
+      const room = criarRoom(perfilUser.id, perfilPesquisa._id);
+
       //Chat
       const socket = io();
 
       //Entrar no chat
-      socket.emit("joinChat", perfilUser.nome);
+      const username = perfilUser.nome;
+      socket.emit("joinChat", { username, room });
 
       socket.on("enviaId", (idSocket) => {
         let idUser = idSocket;
