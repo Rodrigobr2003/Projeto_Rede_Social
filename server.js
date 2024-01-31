@@ -63,18 +63,20 @@ io.on("connection", (socket) => {
   socket.emit("enviaId", idSocket);
 
   //Join chat
-  socket.on("joinChat", (nomePesquisado) => {
-    socket.broadcast.emit("alert", `${nomePesquisado} conectou-se`);
+  socket.on("joinChat", ({ username, room }) => {
+    socket.join(room);
+
+    socket.broadcast.to(room).emit("alert", `${username} conectou-se`);
 
     //Listener de mensagens
     socket.on("chatMessage", (msg) => {
       const idSocket = socket.id;
-      io.emit("message", { msg, idSocket });
+      io.to(room).emit("message", { msg, idSocket });
     });
 
     //Disconnect chat
     socket.on("disconnect", () => {
-      io.emit("alert", `${nomePesquisado} desconectou-se`);
+      io.to(room).emit("alert", `${username} desconectou-se`);
     });
   });
 });
