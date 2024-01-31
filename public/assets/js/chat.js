@@ -3,10 +3,23 @@ document.addEventListener("DOMContentLoaded", () => {
   let chatForm = document.querySelector("#chat-form");
   const chat = document.querySelector(".chat");
 
-  fetch("/dados-user", { method: "GET" })
-    .then((response) => response.json())
-    .then((data) => {
-      const perfilUser = data;
+  const urlDadosUser = "/dados-user";
+  const urlDadosPesquisa = "/mostra-amigos";
+
+  Promise.all([
+    //
+    fetch(urlDadosUser).then((response) => response.json()),
+    fetch(urlDadosPesquisa).then((response) => response.json()),
+    //
+  ])
+    .then((dataArray) => {
+      //
+      const perfilUser = dataArray[0];
+      const arrayperfilPesquisa = dataArray[1];
+      const perfilPesquisa = arrayperfilPesquisa[0];
+
+      //Definindo room(idUser + idFriend)
+      const room = perfilUser.id;
       //Chat
       const socket = io();
 
@@ -96,21 +109,12 @@ document.addEventListener("DOMContentLoaded", () => {
           chat.scrollTop = chat.scrollHeight;
         }
       });
-    })
-    .catch((err) => {
-      console.log("Erro ao fazer fetch do user: ", err);
-    });
 
-  fetch("/mostra-amigos")
-    .then((response) => response.json())
-    .then((data) => {
       let nomeUser = document.querySelector(".nomeUser");
+      let idUser = perfilPesquisa._id;
 
-      let idUser = data[0]._id;
-
-      nomeUser.innerHTML = `${data[0].nome} ${data[0].sobrenome}`;
-
+      nomeUser.innerHTML = `${perfilPesquisa.nome} ${perfilPesquisa.sobrenome}`;
       rotaVolta.href = `/searched-user/${idUser}`;
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log("Erro ao fazer requisição simultânea: ", err));
 });
