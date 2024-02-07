@@ -69,9 +69,9 @@ io.on("connection", (socket) => {
     socket.broadcast.to(room).emit("alert", `${username} conectou-se`);
 
     //Listener de mensagens
-    socket.on("chatMessage", (msg) => {
-      const idSocket = socket.id;
-      io.to(room).emit("message", { msg, idSocket });
+    socket.on("chatMessage", (msg, teste) => {
+      let idMsg = teste;
+      io.to(room).emit("message", { msg, idMsg });
     });
 
     //Disconnect chat

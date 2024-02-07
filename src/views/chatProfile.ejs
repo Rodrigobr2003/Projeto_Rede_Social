@@ -10,7 +10,7 @@
           </a>
 
           <img class="foto-perfil" src="/profile-default.png" />
-          <p class="nomeUser">Nome Sobrenome</p>
+          <p class="nomeUser"></p>
         </div>
 
         <div class="chat">
@@ -24,8 +24,14 @@
         <div class="enviar-msg">
           <button><i class="fa-regular fa-face-smile"></i></button>
 
-          <form id="chat-form">
-            <input type="text" id="msg" autocomplete="off" required />
+          <form id="chat-form" action="/salva-mensagens" method="POST">
+            <input
+              type="text"
+              name="mensagem"
+              id="msg"
+              autocomplete="off"
+              required
+            />
             <button type="submit" class="submit-msg">
               <i class="fa-solid fa-paper-plane"></i>
             </button>
