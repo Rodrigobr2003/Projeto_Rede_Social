@@ -43,6 +43,12 @@ routes.get(
   ControllerSearchedProfile.chatProfile
 );
 
+//salva as mensagens do chat
+routes.post("/salva-mensagens", ControllerSearchedProfile.salvaMensagens);
+
+//carrega as mensagens do chat
+routes.get("/carrega-mensagens", ControllerSearchedProfile.carregaMensagens);
+
 //Routes amigos
 routes.get("/amigos", loginRequired, ControllerAmigos.paginaAmigos);
 routes.get("/carrega-amigos", ControllerAmigos.amigos);

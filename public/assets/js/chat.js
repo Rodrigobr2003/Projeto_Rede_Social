@@ -5,17 +5,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const urlDadosUser = "/dados-user";
   const urlDadosPesquisa = "/mostra-amigos";
+  const urlMensagens = "/carrega-mensagens";
 
   Promise.all([
     //
     fetch(urlDadosUser).then((response) => response.json()),
     fetch(urlDadosPesquisa).then((response) => response.json()),
+    fetch(urlMensagens).then((response) => response.json()),
     //
   ])
     .then((dataArray) => {
       //
       const perfilUser = dataArray[0];
       const arrayperfilPesquisa = dataArray[1];
+      const mensagens = dataArray[2];
       const perfilPesquisa = arrayperfilPesquisa[0];
 
       //Função de criar room
@@ -38,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       socket.emit("joinChat", { username, room });
 
       socket.on("enviaId", (idSocket) => {
-        let idUser = idSocket;
+        let idMsg = perfilUser.id;
 
         socket.on("alert", (msg) => {
           alerta(msg);
@@ -66,22 +69,51 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
 
-        chatForm.addEventListener("submit", (e) => {
+        chatForm.addEventListener("submit", async (e) => {
           e.preventDefault();
 
           let msg = e.target.msg.value;
           e.target.msg.value = "";
 
-          socket.emit("chatMessage", msg);
+          try {
+            let msgObj = { message: { texto: msg } };
+
+            const response = await fetch("/salva-mensagens", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(msgObj),
+            });
+
+            socket.emit("chatMessage", msg, idMsg);
+          } catch (err) {
+            console.log("Erro ao salvar a mensagem:", err);
+          }
         });
 
         socket.on("message", (msg) => {
-          mensagem(msg);
+          criaMensagem(msg.msg, msg.idMsg);
         });
 
-        function mensagem({ msg, idSocket }) {
+        //Carrega mensagens
+        if (mensagens.length == 0) {
+          return;
+        } else {
+          mensagens.forEach((msg) => {
+            let id = null;
+            if (msg.idUser == perfilUser.id) {
+              id = perfilUser.id;
+            }
+
+            criaMensagem(msg.texto, id);
+          });
+        }
+
+        function criaMensagem(msg, idMsg) {
           let ultimaDiv = chat.lastElementChild;
-          if (idSocket === idUser) {
+
+          if (idMsg === perfilUser.id) {
             const divUser = document.querySelector(".user-msg").cloneNode(true);
             const divUserSide = document
               .querySelector(".user-side")

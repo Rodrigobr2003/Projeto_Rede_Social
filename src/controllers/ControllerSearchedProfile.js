@@ -1,4 +1,5 @@
 const Cadastro = require("../models/CadastroModel");
+const Mensagem = require("../models/MensagensModel");
 
 exports.paginaPerfilPesquisado = async (req, res) => {
   const idProfile = req.params.id;
@@ -132,4 +133,35 @@ exports.chatProfile = (req, res) => {
     css: "chat",
     script: "chat",
   });
+};
+
+exports.salvaMensagens = async (req, res) => {
+  const idUser = req.session.user._id;
+  const idProfile = req.session.pesquisa.user[0]._id;
+
+  const ordenarIds = [idUser, idProfile].sort();
+  const room = `${ordenarIds[0]}${ordenarIds[1]}`;
+
+  const mensagem = new Mensagem(req.body.message.texto);
+  await mensagem.registrarMensagem(room, idUser);
+
+  res.json(mensagem);
+};
+
+exports.carregaMensagens = async (req, res) => {
+  const idUser = req.session.user._id;
+  const idProfile = req.session.pesquisa.user[0]._id;
+
+  const ordenarIds = [idUser, idProfile].sort();
+  const room = `${ordenarIds[0]}${ordenarIds[1]}`;
+
+  const data = new Mensagem();
+  const modelMensagem = await data.carregaMensagens(room);
+  const mensagens = modelMensagem.mensagem;
+
+  if (mensagens == "") {
+    return res.json(mensagens);
+  }
+
+  res.json(mensagens.mensagem);
 };
