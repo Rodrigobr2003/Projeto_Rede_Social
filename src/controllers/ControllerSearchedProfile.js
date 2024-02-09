@@ -137,13 +137,9 @@ exports.chatProfile = (req, res) => {
 
 exports.salvaMensagens = async (req, res) => {
   const idUser = req.session.user._id;
-  const idProfile = req.session.pesquisa.user[0]._id;
-
-  const ordenarIds = [idUser, idProfile].sort();
-  const room = `${ordenarIds[0]}${ordenarIds[1]}`;
 
   const mensagem = new Mensagem(req.body.message.texto);
-  await mensagem.registrarMensagem(room, idUser);
+  await mensagem.registrarMensagem(req.body.chatRoom, idUser);
 
   res.json(mensagem);
 };
