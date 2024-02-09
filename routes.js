@@ -14,6 +14,7 @@ const ControllerLogin = require("./src/controllers/ControllerLogin");
 const ControllerPesquisa = require("./src/controllers/ControllerPesquisa");
 const ControllerSearchedProfile = require("./src/controllers/ControllerSearchedProfile");
 const ControllerEditUser = require("./src/controllers/ControllerEditarPerfil");
+const ControllerMensagens = require("./src/controllers/ControllerMensagens");
 
 //Middlewares
 const { loginRequired } = require("./src/middlewares/middlewaresGlobais");
@@ -37,18 +38,16 @@ routes.get(
 routes.post("/adicionar-amigo", ControllerSearchedProfile.adicionarAmigo);
 routes.post("/remover-amigo", ControllerSearchedProfile.removerAmigo);
 routes.get("/mostra-amigos", ControllerSearchedProfile.amigosSearchedProfile);
+routes.post("/procura-perfil", ControllerSearchedProfile.procurarPerfilId);
+
+//Routes chat
 routes.get(
   "/searched-user/:id/chat-profile",
   loginRequired,
-  ControllerSearchedProfile.chatProfile
+  ControllerMensagens.chatProfile //
 );
-routes.post("/procura-perfil", ControllerSearchedProfile.procurarPerfilId);
-
-//salva as mensagens do chat
-routes.post("/salva-mensagens", ControllerSearchedProfile.salvaMensagens);
-
-//carrega as mensagens do chat
-routes.post("/carrega-mensagens", ControllerSearchedProfile.carregaMensagens);
+routes.post("/salva-mensagens", ControllerMensagens.salvaMensagens);
+routes.post("/carrega-mensagens", ControllerMensagens.carregaMensagens);
 
 //Routes amigos
 routes.get("/amigos", loginRequired, ControllerAmigos.paginaAmigos);
