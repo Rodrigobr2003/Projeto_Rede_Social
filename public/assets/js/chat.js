@@ -5,20 +5,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const urlDadosUser = "/dados-user";
   const urlDadosPesquisa = "/mostra-amigos";
-  const urlMensagens = "/carrega-mensagens";
+  // const urlMensagens = "/carrega-mensagens";
 
   Promise.all([
     //
     fetch(urlDadosUser).then((response) => response.json()),
     fetch(urlDadosPesquisa).then((response) => response.json()),
-    fetch(urlMensagens).then((response) => response.json()),
+    // fetch(urlMensagens).then((response) => response.json()),
     //
   ])
-    .then((dataArray) => {
+    .then(async (dataArray) => {
       //
       const perfilUser = dataArray[0];
       const arrayperfilPesquisa = dataArray[1];
-      const mensagens = dataArray[2];
+      // const mensagens = dataArray[2];
       const perfilPesquisa = arrayperfilPesquisa[0];
 
       //Função de criar room
@@ -32,6 +32,25 @@ document.addEventListener("DOMContentLoaded", () => {
         return room;
       }
       const room = criarRoom(perfilUser.id, perfilPesquisa._id);
+
+      //Carrega as mensagens
+
+      let mensagens = undefined;
+
+      try {
+        const req = { chatRoom: room };
+        const carregaMensagens = await fetch("/carrega-mensagens", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(req),
+        });
+
+        mensagens = await carregaMensagens.json();
+      } catch (error) {
+        console.log("Erro ao carregar as mensagens: ", error);
+      }
 
       //Chat
       const socket = io();
@@ -76,7 +95,10 @@ document.addEventListener("DOMContentLoaded", () => {
           e.target.msg.value = "";
 
           try {
-            let msgObj = { message: { texto: msg } };
+            let msgObj = {
+              chatRoom: room,
+              message: { texto: msg },
+            };
 
             const response = await fetch("/salva-mensagens", {
               method: "POST",
