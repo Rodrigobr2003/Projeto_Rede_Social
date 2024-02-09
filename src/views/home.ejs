@@ -6,11 +6,14 @@
       <div class="perfil-feed">
         <img class="foto-perfil" src="/profile-default.png" />
 
-        <input
-          type="text"
-          placeholder="Publique qualquer coisa, <%= user.nome %>"
-          class="input-atividade"
-        />
+        <form class="msg input-atividade">
+          <input
+            id="msg"
+            type="text"
+            placeholder="Publique qualquer coisa, <%= user.nome %>"
+            autocomplete="off"
+          />
+        </form>
       </div>
 
       <div class="anexos">
@@ -20,33 +23,32 @@
       </div>
     </div>
 
-    <div class="feed-default publi">
-      <div class="perfil-feed">
-        <img class="foto-perfil" src="/profile-default.png" />
+    <div class="feed-chat">
+      <div class="feed-default publi perfil-publi">
+        <div class="perfil-feed">
+          <img class="foto-perfil" src="/profile-default.png" />
 
-        <div class="infos">
-          <p class="userName">NOME USER</p>
-          <p class="tempo">3 d</p>
+          <div class="infos">
+            <p class="userName"></p>
+            <p class="tempo">3 d</p>
+          </div>
         </div>
-      </div>
 
-      <div class="div-desc">
-        <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here', making it
-        </p>
-      </div>
+        <div class="div-desc">
+          <p class="texto"></p>
+        </div>
 
-      <div class="div-media">
-        <img src="/photo-default.png" class="media" />
-      </div>
+        <!-- <div class="div-media">
+          <img src="/photo-default.png" class="media" />
+        </div> -->
 
-      <div class="div-actions">
-        <i class="fa-regular fa-thumbs-up"><span>Curtir</span></i>
-        <i class="fa-regular fa-comment"><span>Comentar</span></i>
-        <i class="fa-regular fa-share-from-square"><span>Compartilhar</span></i>
+        <div class="div-actions">
+          <i class="fa-regular fa-thumbs-up"><span>Curtir</span></i>
+          <i class="fa-regular fa-comment"><span>Comentar</span></i>
+          <i class="fa-regular fa-share-from-square"
+            ><span>Compartilhar</span></i
+          >
+        </div>
       </div>
     </div>
   </div>

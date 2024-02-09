@@ -16,6 +16,12 @@ section {
   width: 55%;
 }
 
+.feed-chat {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
 .feed-default {
   background-color: #fff;
   align-self: flex-start;
@@ -86,7 +92,9 @@ section {
 }
 
 .publi {
-  margin-top: 20px;
+  display: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .infos {

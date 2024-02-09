@@ -6,6 +6,15 @@ const MensagemSchema = new mongoose.Schema({
     {
       texto: { type: String, required: true, default: "" },
       idUser: { type: String, required: false, default: "" },
+      curtidas: { type: Number, required: false, default: 0 },
+      comentarios: [
+        {
+          idUser: { type: String, required: false, default: "" },
+          coment: { type: String, required: false, default: "" },
+        },
+      ],
+      tempo: { type: Date, required: false },
+      image: { type: String, required: false },
       _id: false,
     },
   ],

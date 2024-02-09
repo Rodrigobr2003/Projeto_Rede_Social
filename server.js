@@ -66,18 +66,25 @@ io.on("connection", (socket) => {
   socket.on("joinChat", ({ username, room }) => {
     socket.join(room);
 
-    socket.broadcast.to(room).emit("alert", `${username} conectou-se`);
+    if (!room.includes("feed:")) {
+      socket.broadcast.to(room).emit("alert", `${username} conectou-se`);
+    }
 
     //Listener de mensagens
-    socket.on("chatMessage", (msg, teste) => {
-      let idMsg = teste;
+    socket.on("chatMessage", (msg, idMsg) => {
       io.to(room).emit("message", { msg, idMsg });
     });
 
-    //Disconnect chat
-    socket.on("disconnect", () => {
-      io.to(room).emit("alert", `${username} desconectou-se`);
+    socket.on("feedChat", (msg, id, name) => {
+      io.to(room).emit("feedMessage", msg, id, name);
     });
+
+    //Disconnect chat
+    if (!room.includes("feed:")) {
+      socket.on("disconnect", () => {
+        io.to(room).emit("alert", `${username} desconectou-se`);
+      });
+    }
   });
 });
 
