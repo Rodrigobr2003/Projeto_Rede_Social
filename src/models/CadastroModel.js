@@ -96,7 +96,7 @@ class Cadastro {
   static async buscaId(id) {
     if (typeof id !== "string") return;
 
-    const user = await CadastroModel.findById(id);
+    const user = await CadastroModel.findById(id, { senha: 0 });
 
     return user;
   }

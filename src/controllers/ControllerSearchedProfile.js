@@ -145,11 +145,7 @@ exports.salvaMensagens = async (req, res) => {
 };
 
 exports.carregaMensagens = async (req, res) => {
-  const idUser = req.session.user._id;
-  const idProfile = req.session.pesquisa.user[0]._id;
-
-  const ordenarIds = [idUser, idProfile].sort();
-  const room = `${ordenarIds[0]}${ordenarIds[1]}`;
+  const room = req.body.chatRoom;
 
   const data = new Mensagem();
   const modelMensagem = await data.carregaMensagens(room);
@@ -160,4 +156,12 @@ exports.carregaMensagens = async (req, res) => {
   }
 
   res.json(mensagens.mensagem);
+};
+
+exports.procurarPerfilId = async (req, res) => {
+  const id = req.body.userId;
+
+  let profile = await Cadastro.buscaId(id);
+
+  res.json(profile);
 };
