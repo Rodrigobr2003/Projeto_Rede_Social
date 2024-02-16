@@ -28,13 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         mensagens = await carregaMensagens.json();
-
         for (i in mensagens) {
           const msg = mensagens[i].texto;
           const id = mensagens[i].idUser;
           const profileName = await procuraPerfil(id);
           const msgId = mensagens[i]._id;
           const numCurtidas = mensagens[i].curtidas.length;
+          const tempo = mensagens[i].tempo;
           let like = false;
 
           //Verifica curtida
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           }
 
-          criarMensagem(msg, profileName, msgId, numCurtidas, like);
+          criarMensagem(msg, profileName, tempo, msgId, numCurtidas, like);
         }
       } catch (error) {
         console.log("Erro ao carregar as mensagens: ", error);
@@ -104,8 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       //Listener msgs feed
-      socket.on("feedMessage", (msg, id, name) => {
-        criarMensagem(msg, name);
+      socket.on("feedMessage", (msg, id, name, tempo) => {
+        criarMensagem(msg, name, tempo);
       });
 
       //Submit form
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
           let msgObj = {
             chatRoom: room,
-            message: { texto: texto },
+            message: { texto: texto, tempo: "" },
           };
 
           const response = await fetch("/salva-mensagens", {
@@ -129,7 +129,10 @@ document.addEventListener("DOMContentLoaded", () => {
             body: JSON.stringify(msgObj),
           });
 
-          socket.emit("feedChat", texto, userId, username);
+          const teste = await response.json();
+          const tempo = teste.body.tempo;
+
+          socket.emit("feedChat", texto, userId, username, tempo);
         } catch (error) {
           console.log("Erro ao salvar mensagens no BD: ", error);
         }
@@ -137,13 +140,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //#region Funções do sistema:
       //Criar layout msg
-      function criarMensagem(msg, name, idMsg, numCurtidas, like) {
+      function criarMensagem(msg, name, tempo, idMsg, numCurtidas, like) {
         const publiOriginal = document.querySelector(".feed-default.publi");
 
         const novaPubli = publiOriginal.cloneNode(true);
 
         novaPubli.querySelector(".userName").textContent = name;
         novaPubli.querySelector(".texto").textContent = msg;
+        novaPubli.querySelector(".tempo").textContent = tempo;
 
         novaPubli.querySelector(".like-btn").id = idMsg;
 

@@ -75,8 +75,8 @@ io.on("connection", (socket) => {
       io.to(room).emit("message", { msg, idMsg });
     });
 
-    socket.on("feedChat", (msg, id, name) => {
-      io.to(room).emit("feedMessage", msg, id, name);
+    socket.on("feedChat", (msg, id, name, tempo) => {
+      io.to(room).emit("feedMessage", msg, id, name, tempo);
     });
 
     //Disconnect chat

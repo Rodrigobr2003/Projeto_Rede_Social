@@ -18,8 +18,8 @@ const MensagemSchema = new mongoose.Schema({
           coment: { type: String, required: false, default: "" },
         },
       ],
-      tempo: { type: Date, required: false },
-      image: { type: String, required: false },
+      tempo: { type: String, required: false, default: "" },
+      image: { type: String, required: false, default: "" },
     },
   ],
 });
@@ -37,7 +37,17 @@ class Mensagem {
     if (mensagem) {
       mensagem = await MensagemModel.findOneAndUpdate(
         { chatRoom: room },
-        { $addToSet: { mensagem: [{ texto: this.body, idUser: idUser }] } },
+        {
+          $addToSet: {
+            mensagem: [
+              {
+                texto: this.body.texto,
+                idUser: idUser,
+                tempo: this.body.tempo,
+              },
+            ],
+          },
+        },
         { new: true }
       );
     } else {
@@ -45,8 +55,9 @@ class Mensagem {
         chatRoom: room,
         mensagem: [
           {
-            texto: this.body,
+            texto: this.body.texto,
             idUser: idUser,
+            tempo: this.body.tempo,
           },
         ],
       });

@@ -1,4 +1,5 @@
 const Mensagem = require("../models/MensagensModel");
+const moment = require("moment");
 
 exports.chatProfile = (req, res) => {
   res.render("chatProfile", {
@@ -9,9 +10,12 @@ exports.chatProfile = (req, res) => {
 };
 
 exports.salvaMensagens = async (req, res) => {
+  const momento = moment().format("DD/MM h:mm");
+  req.body.message.tempo = momento;
+
   const idUser = req.session.user._id;
 
-  const mensagem = new Mensagem(req.body.message.texto);
+  const mensagem = new Mensagem(req.body.message);
   await mensagem.registrarMensagem(req.body.chatRoom, idUser);
 
   res.json(mensagem);
