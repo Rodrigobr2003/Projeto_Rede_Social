@@ -47,19 +47,42 @@
         </div>
 
         <div class="div-actions">
-          <button class="like-btn">
+          <button class="like-btn act-btn">
             <i class="fa-regular fa-thumbs-up"><span>Curtir</span></i>
           </button>
 
-          <button>
+          <button class="comment-btn act-btn">
             <i class="fa-regular fa-comment"><span>Comentar</span></i>
           </button>
 
-          <button>
+          <button class="share-btn act-btn">
             <i class="fa-regular fa-share-from-square"
               ><span>Compartilhar</span></i
             >
           </button>
+        </div>
+
+        <div class="comentarios">
+          <div class="your-comment comment-def">
+            <img src="profile-default.png" class="comment-photo" />
+            <form class="form-comment">
+              <input
+                type="text"
+                name="comment"
+                class="input-comment"
+                placeholder="Comente algo, <%= user.nome %>"
+              />
+            </form>
+          </div>
+
+          <div class="user comment-def">
+            <div>
+              <img src="profile-default.png" class="comment-photo" />
+              <p class="comment-name"></p>
+            </div>
+
+            <p class="comment"></p>
+          </div>
         </div>
       </div>
     </div>

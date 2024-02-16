@@ -170,7 +170,80 @@ section {
   transition: color 0.4s ease, background-color 0.4s ease;
 }
 
-.like-btn i,
-.like-btn span {
+.act-btn i,
+.act-btn span {
   pointer-events: none;
+}
+
+.comentarios {
+  display: none; /*block*/
+  height: 300px;
+  margin: 10px 25px;
+  background-color: #f0f2f5;
+  border-radius: 8px;
+  overflow-y: scroll;
+  font-family: "Signika", sans-serif;
+}
+
+.comentarios::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+.comentarios::-webkit-scrollbar-track {
+  background: none;
+}
+
+.comentarios::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.comment-def {
+  padding: 15px 5px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.user {
+  display: none; /*flex*/
+}
+
+.form-comment {
+  width: 110%;
+}
+
+.your-comment {
+  display: flex;
+  margin-left: 10px;
+}
+
+.your-comment .input-comment {
+  background-color: #aaaaaa;
+  margin-left: 10px;
+}
+
+.user {
+  flex-direction: column;
+}
+
+.user div {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.comment-photo {
+  width: 10%;
+  border-radius: 30px;
+}
+
+.comment-name {
+  padding-left: 10px;
+}
+
+.user .comment {
+  padding-left: 10px;
+  width: 90%;
 }

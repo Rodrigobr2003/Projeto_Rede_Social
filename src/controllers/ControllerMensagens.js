@@ -13,6 +13,8 @@ exports.salvaMensagens = async (req, res) => {
   const momento = moment().format("DD/MM h:mm");
   req.body.message.tempo = momento;
 
+  if (req.body.message.texto === "") return;
+
   const idUser = req.session.user._id;
 
   const mensagem = new Mensagem(req.body.message);
@@ -35,20 +37,39 @@ exports.carregaMensagens = async (req, res) => {
   res.json(mensagens.mensagem);
 };
 
-exports.curtirMsg = (req, res) => {
+exports.curtirMsg = async (req, res) => {
   const room = req.body.chatRoom;
   const index = req.body.index;
   const idUser = req.body.idUser;
 
   let curtida = new Mensagem();
-  curtida = curtida.adicionarCurtida(room, index, idUser);
+  curtida = await curtida.adicionarCurtida(room, index, idUser);
 };
 
-exports.removerCurtida = (req, res) => {
+exports.removerCurtida = async (req, res) => {
   const room = req.body.chatRoom;
   const index = req.body.index;
   const idUser = req.body.idUser;
 
   let curtida = new Mensagem();
-  curtida = curtida.removerCurtida(room, index, idUser);
+  curtida = await curtida.removerCurtida(room, index, idUser);
+};
+
+exports.salvaComentario = async (req, res) => {
+  const comentario = req.body.comentario;
+  const room = req.body.chatRoom;
+  const index = req.body.index;
+  const idUser = req.body.idUser;
+
+  let comment = new Mensagem();
+  comment = await comment.adicionarComentario(room, index, comentario, idUser);
+};
+
+exports.carregaComentario = async (req, res) => {
+  const room = req.body.chatRoom;
+
+  let loadComments = new Mensagem();
+  loadComments = await loadComments.carregarComentarios(room);
+
+  res.json(loadComments);
 };
