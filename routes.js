@@ -40,7 +40,7 @@ routes.post("/remover-amigo", ControllerSearchedProfile.removerAmigo);
 routes.get("/mostra-amigos", ControllerSearchedProfile.amigosSearchedProfile);
 routes.post("/procura-perfil", ControllerSearchedProfile.procurarPerfilId);
 
-//Routes chat
+//Routes mensagens
 routes.get(
   "/searched-user/:id/chat-profile",
   loginRequired,
@@ -50,6 +50,8 @@ routes.post("/salva-mensagens", ControllerMensagens.salvaMensagens);
 routes.post("/carrega-mensagens", ControllerMensagens.carregaMensagens);
 routes.post("/curtir-mensagem", ControllerMensagens.curtirMsg);
 routes.post("/remover-curtida", ControllerMensagens.removerCurtida);
+routes.post("/salva-comentario", ControllerMensagens.salvaComentario);
+routes.post("/carrega-comentarios", ControllerMensagens.carregaComentario);
 
 //Routes amigos
 routes.get("/amigos", loginRequired, ControllerAmigos.paginaAmigos);

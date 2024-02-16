@@ -51,9 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Erro ao carregar as mensagens: ", error);
       }
 
-      //Click btn
+      //Click btn curtir
       const likeBnt = document.querySelectorAll(".like-btn");
-
       likeBnt.forEach((btn) => {
         btn.addEventListener("click", async (e) => {
           let indexMsg = undefined;
@@ -103,6 +102,55 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
+      //Click abrir comentario
+      const commentBnt = document.querySelectorAll(".comment-btn");
+      commentBnt.forEach((btn) => {
+        btn.addEventListener("click", async (e) => {
+          const divPubli = e.target.parentNode.parentNode;
+          const commentSec = divPubli.querySelector(".comentarios");
+          const id = divPubli.querySelector(".comment-btn").id;
+
+          commentSec.querySelector(".form-comment").id = id;
+
+          const estiloDisplay = window
+            .getComputedStyle(commentSec)
+            .getPropertyValue("display");
+
+          if (estiloDisplay === "none") commentSec.style.display = "block";
+          if (estiloDisplay === "block") commentSec.style.display = "none";
+
+          const reqObj = {
+            chatRoom: room,
+          };
+
+          const response = await fetch("/carrega-comentarios", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(reqObj),
+          });
+
+          const data = await response.json();
+
+          let indexMsg = undefined;
+          for (let i = 0; i < mensagens.length; i++) {
+            const teste = mensagens[i];
+            if (teste._id === e.target.id) {
+              indexMsg = i;
+            }
+          }
+
+          const listComments = data[indexMsg].comentarios;
+
+          listComments.forEach(async (c) => {
+            const comment = c.comment;
+            const idUser = c.idUser;
+            const profileName = await procuraPerfil(idUser);
+
+            criarComentario(profileName, comment, commentSec);
+          });
+        });
+      });
+
       //Listener msgs feed
       socket.on("feedMessage", (msg, id, name, tempo) => {
         criarMensagem(msg, name, tempo);
@@ -138,6 +186,41 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
+      //Submit comment
+      const commentInputList = document.querySelectorAll(".form-comment");
+
+      commentInputList.forEach((input) => {
+        input.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const divComentario = e.target.parentNode.parentNode;
+
+          let indexMsg = undefined;
+          for (let i = 0; i < mensagens.length; i++) {
+            const teste = mensagens[i];
+            if (teste._id === e.target.id) {
+              indexMsg = i;
+            }
+          }
+
+          const comentario = e.target.comment.value;
+
+          criarComentario(username, comentario, divComentario);
+
+          const objMsg = {
+            comentario: comentario,
+            index: indexMsg,
+            chatRoom: room,
+            idUser: data.id,
+          };
+
+          await fetch("/salva-comentario", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(objMsg),
+          });
+        });
+      });
+
       //#region Funções do sistema:
       //Criar layout msg
       function criarMensagem(msg, name, tempo, idMsg, numCurtidas, like) {
@@ -150,6 +233,8 @@ document.addEventListener("DOMContentLoaded", () => {
         novaPubli.querySelector(".tempo").textContent = tempo;
 
         novaPubli.querySelector(".like-btn").id = idMsg;
+        novaPubli.querySelector(".comment-btn").id = idMsg;
+        novaPubli.querySelector(".share-btn").id = idMsg;
 
         if (numCurtidas == 0) {
           novaPubli.querySelector(".numCurtidas").innerHTML = "";
@@ -216,6 +301,18 @@ document.addEventListener("DOMContentLoaded", () => {
         i.classList.remove("fa-solid");
         i.classList.add("fa-regular");
         span.innerHTML = "Curtir";
+      }
+
+      function criarComentario(name, comment, section) {
+        const commentOriginal = document.querySelector(".user");
+
+        const novoComment = commentOriginal.cloneNode(true);
+
+        novoComment.querySelector(".comment-name").textContent = name;
+        novoComment.querySelector(".comment").textContent = comment;
+
+        novoComment.style.display = "flex";
+        section.appendChild(novoComment);
       }
 
       //#endregion

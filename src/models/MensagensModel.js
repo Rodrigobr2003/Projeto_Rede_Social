@@ -15,7 +15,8 @@ const MensagemSchema = new mongoose.Schema({
       comentarios: [
         {
           idUser: { type: String, required: false, default: "" },
-          coment: { type: String, required: false, default: "" },
+          comment: { type: String, required: false, default: "" },
+          _id: false,
         },
       ],
       tempo: { type: String, required: false, default: "" },
@@ -79,27 +80,69 @@ class Mensagem {
   }
 
   async adicionarCurtida(room, index, idUser) {
-    let chat = await MensagemModel.findOne({ chatRoom: room }).exec();
+    try {
+      let chat = await MensagemModel.findOne({ chatRoom: room }).exec();
 
-    const caminhoCurtida = `mensagem.${index}.curtidas`;
+      const caminhoCurtida = `mensagem.${index}.curtidas`;
 
-    chat = await MensagemModel.findOneAndUpdate(
-      { chatRoom: room },
-      { $addToSet: { [caminhoCurtida]: { idUser } } },
-      { new: true }
-    ).exec();
+      chat = await MensagemModel.findOneAndUpdate(
+        { chatRoom: room },
+        { $addToSet: { [caminhoCurtida]: { idUser } } },
+        { new: true }
+      ).exec();
+    } catch (error) {
+      console.log("Erro ao adicionar curtida: ", error);
+    }
   }
 
   async removerCurtida(room, index, idUser) {
-    let chat = await MensagemModel.findOne({ chatRoom: room }).exec();
+    try {
+      let chat = await MensagemModel.findOne({ chatRoom: room }).exec();
 
-    const caminhoCurtida = `mensagem.${index}.curtidas`;
+      const caminhoCurtida = `mensagem.${index}.curtidas`;
 
-    chat = await MensagemModel.findOneAndUpdate(
-      { chatRoom: room },
-      { $pull: { [caminhoCurtida]: { idUser } } },
-      { new: true }
-    ).exec();
+      chat = await MensagemModel.findOneAndUpdate(
+        { chatRoom: room },
+        { $pull: { [caminhoCurtida]: { idUser } } },
+        { new: true }
+      ).exec();
+    } catch (error) {
+      console.log("Erro ao remover curtida: ", error);
+    }
+  }
+
+  async adicionarComentario(room, index, comentario, idUser) {
+    try {
+      let chat = await MensagemModel.findOne({ chatRoom: room }).exec();
+
+      const caminhoComment = `mensagem.${index}.comentarios`;
+
+      chat = await MensagemModel.findOneAndUpdate(
+        { chatRoom: room },
+        {
+          $addToSet: {
+            [caminhoComment]: { idUser: idUser, comment: comentario },
+          },
+        },
+        { new: true }
+      );
+    } catch (error) {
+      console.log("Erro ao adicionar comentario: ", error);
+    }
+  }
+
+  async carregarComentarios(room) {
+    try {
+      let chat = await MensagemModel.findOne({ chatRoom: room }).exec();
+
+      if (!chat) return { comentarios: [] };
+
+      const mensagens = chat.mensagem;
+
+      return mensagens;
+    } catch (error) {
+      console.log("Erro ao carregar comentarios: ", error);
+    }
   }
 }
 
