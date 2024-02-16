@@ -30,3 +30,21 @@ exports.carregaMensagens = async (req, res) => {
 
   res.json(mensagens.mensagem);
 };
+
+exports.curtirMsg = (req, res) => {
+  const room = req.body.chatRoom;
+  const index = req.body.index;
+  const idUser = req.body.idUser;
+
+  let curtida = new Mensagem();
+  curtida = curtida.adicionarCurtida(room, index, idUser);
+};
+
+exports.removerCurtida = (req, res) => {
+  const room = req.body.chatRoom;
+  const index = req.body.index;
+  const idUser = req.body.idUser;
+
+  let curtida = new Mensagem();
+  curtida = curtida.removerCurtida(room, index, idUser);
+};

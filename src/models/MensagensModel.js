@@ -6,7 +6,12 @@ const MensagemSchema = new mongoose.Schema({
     {
       texto: { type: String, required: true, default: "" },
       idUser: { type: String, required: false, default: "" },
-      curtidas: { type: Number, required: false, default: 0 },
+      curtidas: [
+        {
+          idUser: { type: String, required: false, default: "" },
+          _id: false,
+        },
+      ],
       comentarios: [
         {
           idUser: { type: String, required: false, default: "" },
@@ -15,7 +20,6 @@ const MensagemSchema = new mongoose.Schema({
       ],
       tempo: { type: Date, required: false },
       image: { type: String, required: false },
-      _id: false,
     },
   ],
 });
@@ -61,6 +65,30 @@ class Mensagem {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  async adicionarCurtida(room, index, idUser) {
+    let chat = await MensagemModel.findOne({ chatRoom: room }).exec();
+
+    const caminhoCurtida = `mensagem.${index}.curtidas`;
+
+    chat = await MensagemModel.findOneAndUpdate(
+      { chatRoom: room },
+      { $addToSet: { [caminhoCurtida]: { idUser } } },
+      { new: true }
+    ).exec();
+  }
+
+  async removerCurtida(room, index, idUser) {
+    let chat = await MensagemModel.findOne({ chatRoom: room }).exec();
+
+    const caminhoCurtida = `mensagem.${index}.curtidas`;
+
+    chat = await MensagemModel.findOneAndUpdate(
+      { chatRoom: room },
+      { $pull: { [caminhoCurtida]: { idUser } } },
+      { new: true }
+    ).exec();
   }
 }
 
