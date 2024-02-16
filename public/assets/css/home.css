@@ -121,6 +121,17 @@ section {
   position: relative;
 }
 
+.curtidas {
+  margin: 15px 25px 5px;
+  border-top: 1px solid gray;
+}
+
+.curtidas p {
+  font-family: "Signika", sans-serif;
+  margin: 0px 25px;
+  padding-top: 5px;
+}
+
 .media {
   width: 100%;
   height: 100%;
@@ -128,18 +139,21 @@ section {
 }
 
 .div-actions {
-  margin: 15px 25px 0;
+  margin: 0px 25px 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.div-actions i {
+.div-actions button {
   font-size: 1.7em;
   margin: 0 20px;
   cursor: pointer;
   padding: 8px;
   transition: background-color 0.4s ease;
+  border: none;
+  border-radius: 8px;
+  background: none;
 }
 
 .div-actions i span {
@@ -148,10 +162,15 @@ section {
   font-family: "Signika", sans-serif;
 }
 
-.div-actions i:hover {
+.div-actions button:hover {
   background-color: #dddee0;
   color: #2c3892;
   padding: 8px;
-  border-radius: 8px;
+
   transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+.like-btn i,
+.like-btn span {
+  pointer-events: none;
 }
