@@ -22,17 +22,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let cloneDiv = document.querySelector(".perfil-feed").cloneNode(true);
         cloneDiv.style.display = "flex";
-
         let notificacaoAmizade = cloneDiv.querySelector(".userName");
-        notificacaoAmizade.innerHTML = `${nomeSol} ${sobrenomSol} fez um pedido de amizade`;
 
-        let btnNegar = cloneDiv.querySelector(".negar");
-        btnNegar.name = "notificacaoId";
-        btnNegar.value = n;
+        if (notificacoes[n].tipo === 1) {
+          notificacaoAmizade.innerHTML = `${nomeSol} ${sobrenomSol} fez um pedido de amizade`;
 
-        let btnAceitar = cloneDiv.querySelector(".aceitar");
-        btnAceitar.name = "notificacaoId";
-        btnAceitar.value = n;
+          let btnNegar = cloneDiv.querySelector(".negar");
+          btnNegar.name = "notificacaoId";
+          btnNegar.value = n;
+          btnNegar.style.display = "block";
+
+          let btnAceitar = cloneDiv.querySelector(".aceitar");
+          btnAceitar.name = "notificacaoId";
+          btnAceitar.value = n;
+          btnAceitar.style.display = "block";
+        }
+
+        if (notificacoes[n].tipo === 2) {
+          notificacaoAmizade.innerHTML = `${nomeSol} ${sobrenomSol} enviou uma mensagem`;
+        }
+
+        if (notificacoes[n].tipo === 3) {
+          notificacaoAmizade.innerHTML = `${nomeSol} ${sobrenomSol} curtiu sua publicação`;
+        }
+
+        if (notificacoes[n].tipo === 4) {
+          notificacaoAmizade.innerHTML = `${nomeSol} ${sobrenomSol} comentou em sua publicação`;
+        }
 
         divNotificacoes.appendChild(cloneDiv);
       }

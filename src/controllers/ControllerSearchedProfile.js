@@ -50,10 +50,11 @@ exports.adicionarAmigo = async (req, res) => {
       idSolicitante: user._id,
       nomeSolicitante: user.nome,
       sobrenomeSolicitante: user.sobrenome,
+      tipo: 1,
     };
 
     let idSearchedProfile = req.session.pesquisa.user[0]._id;
-
+    //mudar o tipo de notf
     let novoPerfil = new Cadastro(notificacaoAmizade);
     novoPerfil = await novoPerfil.adicionarNotificacao(idSearchedProfile);
 

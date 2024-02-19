@@ -100,6 +100,25 @@ h2 {
   font-size: 0.85em;
 }
 
+.perfil-amigo {
+  overflow-y: scroll;
+  height: 250px;
+}
+
+.perfil-amigo::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+.perfil-amigo::-webkit-scrollbar-track {
+  background: none;
+}
+
+.perfil-amigo::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
 .perfil-amigo i {
   display: flex;
   align-items: center;
@@ -126,6 +145,7 @@ h2 {
 
 .aceitar {
   background-color: #51ade5;
+  display: none;
 }
 
 .aceitar:hover {
@@ -134,6 +154,7 @@ h2 {
 
 .negar {
   background-color: #b6b6b6;
+  display: none;
 }
 
 .negar:hover {
