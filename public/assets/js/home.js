@@ -105,6 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       //Click abrir comentario
       const commentBnt = document.querySelectorAll(".comment-btn");
       commentBnt.forEach((btn) => {
+        let mensagensCarregadas = false;
         btn.addEventListener("click", async (e) => {
           const divPubli = e.target.parentNode.parentNode;
           const commentSec = divPubli.querySelector(".comentarios");
@@ -119,27 +120,34 @@ document.addEventListener("DOMContentLoaded", () => {
           if (estiloDisplay === "none") commentSec.style.display = "block";
           if (estiloDisplay === "block") commentSec.style.display = "none";
 
-          const reqObj = {
-            chatRoom: room,
-          };
+          let data = undefined;
+          let listComments = [];
 
-          const response = await fetch("/carrega-comentarios", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(reqObj),
-          });
+          if (!mensagensCarregadas) {
+            const reqObj = {
+              chatRoom: room,
+            };
 
-          const data = await response.json();
+            const response = await fetch("/carrega-comentarios", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(reqObj),
+            });
 
-          let indexMsg = undefined;
-          for (let i = 0; i < mensagens.length; i++) {
-            const teste = mensagens[i];
-            if (teste._id === e.target.id) {
-              indexMsg = i;
+            data = await response.json();
+
+            let indexMsg = undefined;
+            for (let i = 0; i < mensagens.length; i++) {
+              const teste = mensagens[i];
+              if (teste._id === e.target.id) {
+                indexMsg = i;
+              }
             }
-          }
 
-          const listComments = data[indexMsg].comentarios;
+            listComments = data[indexMsg].comentarios;
+
+            mensagensCarregadas = true;
+          }
 
           listComments.forEach(async (c) => {
             const comment = c.comment;
