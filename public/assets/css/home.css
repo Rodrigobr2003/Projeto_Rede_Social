@@ -118,6 +118,21 @@ section {
   font-size: 0.85em;
 }
 
+.form-apagar {
+  display: none;
+}
+
+.apagar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 330px;
+}
+
+.apagar i {
+  font-size: 20px;
+}
+
 .div-desc {
   margin: 10px 25px 0;
   font-family: "Signika", sans-serif;

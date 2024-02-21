@@ -52,6 +52,7 @@ routes.post("/curtir-mensagem", ControllerMensagens.curtirMsg);
 routes.post("/remover-curtida", ControllerMensagens.removerCurtida);
 routes.post("/salva-comentario", ControllerMensagens.salvaComentario);
 routes.post("/carrega-comentarios", ControllerMensagens.carregaComentario);
+routes.post("/apagar-mensagem", ControllerMensagens.apagarMsg);
 
 //Routes amigos
 routes.get("/amigos", loginRequired, ControllerAmigos.paginaAmigos);

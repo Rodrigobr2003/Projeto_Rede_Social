@@ -83,6 +83,25 @@ exports.carregaComentario = async (req, res) => {
   res.json(loadComments);
 };
 
+exports.apagarMsg = async (req, res) => {
+  try {
+    const userId = req.session.user._id;
+    const indexNotf = req.body.id;
+    const room = req.body.room;
+
+    let excluir = new Mensagem();
+    excluir = await excluir.removerComentario(userId, indexNotf, room);
+
+    res.render("home", {
+      pagina: "Home",
+      css: "home",
+      script: "home",
+    });
+  } catch (error) {
+    console.log("Erro ao excluir mensagem: ", error);
+  }
+};
+
 async function enviarNotf(room, req, type, idUserMsg) {
   if (room) {
     const notificacaoMsg = {
