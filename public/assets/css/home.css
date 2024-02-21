@@ -6,6 +6,7 @@ body {
 section {
   display: flex;
   justify-content: center;
+  height: 70vh; /*AJUSTAR*/
 }
 
 .feed {
@@ -17,9 +18,16 @@ section {
 }
 
 .feed-chat {
+  /*AJUSTAR*/
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  overflow-y: hidden;
+  height: 120vh;
+  overflow-y: scroll;
+}
+
+.feed-chat::-webkit-scrollbar {
+  width: 0.001px;
 }
 
 .feed-default {
