@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         mensagens = await carregaMensagens.json();
+
         for (i in mensagens) {
           const msg = mensagens[i].texto;
           const id = mensagens[i].idUser;
@@ -46,6 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
           }
 
           criarMensagem(msg, profileName, tempo, msgId, numCurtidas, like);
+
+          if (mensagens.length > 0)
+            document.querySelector("section").style.height = "130vh";
         }
       } catch (error) {
         console.log("Erro ao carregar as mensagens: ", error);
@@ -153,13 +157,13 @@ document.addEventListener("DOMContentLoaded", () => {
             mensagensCarregadas = true;
           }
 
-          listComments.forEach(async (c) => {
+          for (const c of listComments) {
             const comment = c.comment;
             const idUser = c.idUser;
             const profileName = await procuraPerfil(idUser);
 
             criarComentario(profileName, comment, commentSec);
-          });
+          }
         });
       });
 
@@ -217,6 +221,8 @@ document.addEventListener("DOMContentLoaded", () => {
           }
 
           const comentario = e.target.comment.value;
+
+          e.target.comment.value = "";
 
           criarComentario(username, comentario, divComentario);
 
