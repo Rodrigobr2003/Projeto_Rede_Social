@@ -56,11 +56,14 @@ document.addEventListener("DOMContentLoaded", () => {
       likeBnt.forEach((btn) => {
         btn.addEventListener("click", async (e) => {
           let indexMsg = undefined;
+          let saveId = undefined;
 
           for (let i = 0; i < mensagens.length; i++) {
             const teste = mensagens[i];
+
             if (teste._id === e.target.id) {
               indexMsg = i;
+              saveId = teste.idUser;
             }
           }
 
@@ -71,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
               chatRoom: room,
               index: indexMsg,
               idUser: data.id,
+              idUserMsg: saveId,
             };
 
             await fetch("/curtir-mensagem", {
@@ -200,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
       commentInputList.forEach((input) => {
         input.addEventListener("submit", async (e) => {
           e.preventDefault();
+          let saveId = undefined;
           const divComentario = e.target.parentNode.parentNode;
 
           let indexMsg = undefined;
@@ -207,6 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const teste = mensagens[i];
             if (teste._id === e.target.id) {
               indexMsg = i;
+              saveId = teste.idUser;
             }
           }
 
@@ -219,6 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
             index: indexMsg,
             chatRoom: room,
             idUser: data.id,
+            idUserMsg: saveId,
           };
 
           await fetch("/salva-comentario", {

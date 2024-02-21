@@ -21,7 +21,7 @@ exports.salvaMensagens = async (req, res) => {
   const mensagem = new Mensagem(req.body.message);
   await mensagem.registrarMensagem(req.body.chatRoom, idUser);
 
-  enviarNotf(req.body.chatRoom, req, 2);
+  enviarNotf(req.body.chatRoom, req, 2, req.body.idUserMsg);
 
   res.json(mensagem);
 };
@@ -44,11 +44,12 @@ exports.curtirMsg = async (req, res) => {
   const room = req.body.chatRoom;
   const index = req.body.index;
   const idUser = req.body.idUser;
+  const idUserMsg = req.body.idUserMsg;
 
   let curtida = new Mensagem();
   curtida = await curtida.adicionarCurtida(room, index, idUser);
 
-  enviarNotf(room, req, 3);
+  enviarNotf(room, req, 3, idUserMsg);
 };
 
 exports.removerCurtida = async (req, res) => {
@@ -65,11 +66,12 @@ exports.salvaComentario = async (req, res) => {
   const room = req.body.chatRoom;
   const index = req.body.index;
   const idUser = req.body.idUser;
+  const idUserMsg = req.body.idUserMsg;
 
   let comment = new Mensagem();
   comment = await comment.adicionarComentario(room, index, comentario, idUser);
 
-  enviarNotf(room, req, 4);
+  enviarNotf(room, req, 4, idUserMsg);
 };
 
 exports.carregaComentario = async (req, res) => {
@@ -81,7 +83,7 @@ exports.carregaComentario = async (req, res) => {
   res.json(loadComments);
 };
 
-async function enviarNotf(room, req, type) {
+async function enviarNotf(room, req, type, idUserMsg) {
   if (room) {
     const notificacaoMsg = {
       idSolicitante: req.session.user._id,
@@ -90,9 +92,7 @@ async function enviarNotf(room, req, type) {
       tipo: type,
     };
 
-    let idSearchedProfile = req.session.pesquisa.user[0]._id;
-
     let novaNotf = new Cadastro(notificacaoMsg);
-    novaNotf = await novaNotf.adicionarNotificacao(idSearchedProfile);
+    novaNotf = await novaNotf.adicionarNotificacao(idUserMsg);
   }
 }

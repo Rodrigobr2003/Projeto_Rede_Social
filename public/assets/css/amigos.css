@@ -57,6 +57,22 @@ h2 {
 
 .perfil-amigo {
   margin: 15px 0;
+  height: 250px;
+  overflow-y: scroll;
+}
+
+.perfil-amigo::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+.perfil-amigo::-webkit-scrollbar-track {
+  background: none;
+}
+
+.perfil-amigo::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
 }
 
 .perfil-feed {

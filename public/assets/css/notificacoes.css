@@ -160,3 +160,12 @@ h2 {
 .negar:hover {
   background-color: #8c8d8d;
 }
+
+.apagar {
+  background: none;
+  cursor: pointer;
+}
+
+.apagar i {
+  font-size: 20px;
+}
