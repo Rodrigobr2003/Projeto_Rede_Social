@@ -121,11 +121,13 @@ class Cadastro {
   async adicionarNotificacao(id) {
     if (this.errors.length > 0) return;
 
-    this.user = await CadastroModel.findById(id);
+    const novaNotf = this.body;
 
     this.user = await CadastroModel.findByIdAndUpdate(
       id,
-      { $addToSet: { notificacoes: this.body } },
+      {
+        $push: { notificacoes: novaNotf },
+      },
       { new: true }
     );
 
@@ -190,6 +192,22 @@ class Cadastro {
     );
 
     return this.user;
+  }
+
+  async excluirNotificacao(id, index) {
+    if (this.errors.length > 0) return;
+
+    const user = await CadastroModel.findById(id);
+
+    if (!user) {
+      return;
+    }
+
+    user.notificacoes.splice(index, 1);
+
+    await user.save();
+
+    return user;
   }
 }
 

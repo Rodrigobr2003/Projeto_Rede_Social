@@ -97,7 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
           try {
             let msgObj = {
               chatRoom: room,
-              message: { texto: msg },
+              message: { texto: msg }, //AQUI
+              idUserMsg: arrayperfilPesquisa[0]._id,
             };
 
             const response = await fetch("/salva-mensagens", {

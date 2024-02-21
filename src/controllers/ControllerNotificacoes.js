@@ -73,9 +73,33 @@ exports.aceitar = async (req, res) => {
       pagina: "Notificações",
       css: "notificacoes",
       script: "notificacoes",
-      novoPerfil,
+      user: res.locals.user,
     });
   } catch (error) {
     console.log("Erro ao aceitar pedido de amizade", error);
+  }
+};
+
+exports.excluirNotf = async (req, res) => {
+  try {
+    if (req.session.user.notificacoes == "") return;
+
+    const userId = req.session.user._id;
+
+    const indexNotf = req.body.id;
+
+    let excluir = new Cadastro();
+    excluir = await excluir.excluirNotificacao(userId, indexNotf);
+
+    req.session.user = excluir;
+
+    res.render("notificacoes", {
+      pagina: "Notificações",
+      css: "notificacoes",
+      script: "notificacoes",
+      excluir,
+    });
+  } catch (error) {
+    console.log("Erro ao excluir notificação: ", error);
   }
 };

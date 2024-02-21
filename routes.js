@@ -66,6 +66,7 @@ routes.get(
 routes.get("/mostrar-notificacoes", ControllerNotificacoes.notficacoes);
 routes.post("/negar-amigo", ControllerNotificacoes.negar);
 routes.post("/aceitar-amigo", ControllerNotificacoes.aceitar);
+routes.post("/exluir-notficacao", ControllerNotificacoes.excluirNotf);
 
 //Routes perfil
 routes.get("/perfil/:id", loginRequired, ControllerPerfil.paginaPerfil);

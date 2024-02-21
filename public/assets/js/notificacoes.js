@@ -7,11 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const notificacoes = data;
 
       if (notificacoes.length == 0) {
-        let divPerfilAmigo = document.querySelector(".perfil-feed");
-        divPerfilAmigo.style.display = "none";
+        document.querySelector(".perfil-feed").style.display = "none";
 
-        let avisoNotif = document.querySelector(".aviso-notif");
-        avisoNotif.style.display = "flex";
+        document.querySelector(".aviso-notif").style.display = "flex";
 
         return;
       }
@@ -23,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let cloneDiv = document.querySelector(".perfil-feed").cloneNode(true);
         cloneDiv.style.display = "flex";
         let notificacaoAmizade = cloneDiv.querySelector(".userName");
+
+        cloneDiv.querySelector(".value").value = n;
 
         if (notificacoes[n].tipo === 1) {
           notificacaoAmizade.innerHTML = `${nomeSol} ${sobrenomSol} fez um pedido de amizade`;
