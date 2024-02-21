@@ -45,8 +45,16 @@ document.addEventListener("DOMContentLoaded", () => {
               break;
             }
           }
-
-          criarMensagem(msg, profileName, tempo, msgId, numCurtidas, like);
+          criarMensagem(
+            id,
+            msg,
+            profileName,
+            tempo,
+            msgId,
+            numCurtidas,
+            like,
+            i
+          );
 
           if (mensagens.length > 0)
             document.querySelector("section").style.height = "130vh";
@@ -169,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //Listener msgs feed
       socket.on("feedMessage", (msg, id, name, tempo) => {
-        criarMensagem(msg, name, tempo);
+        criarMensagem(userId, msg, name, tempo);
       });
 
       //Submit form
@@ -244,7 +252,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //#region Funções do sistema:
       //Criar layout msg
-      function criarMensagem(msg, name, tempo, idMsg, numCurtidas, like) {
+      function criarMensagem(
+        id,
+        msg,
+        name,
+        tempo,
+        idMsg,
+        numCurtidas,
+        like,
+        index
+      ) {
         const publiOriginal = document.querySelector(".feed-default.publi");
 
         const novaPubli = publiOriginal.cloneNode(true);
@@ -256,6 +273,8 @@ document.addEventListener("DOMContentLoaded", () => {
         novaPubli.querySelector(".like-btn").id = idMsg;
         novaPubli.querySelector(".comment-btn").id = idMsg;
         novaPubli.querySelector(".share-btn").id = idMsg;
+
+        if (index) novaPubli.querySelector(".value").value = index;
 
         if (numCurtidas == 0) {
           novaPubli.querySelector(".numCurtidas").innerHTML = "";
@@ -274,15 +293,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (like) {
-          novaPubli.querySelector("i").classList.remove("fa-regular");
-          novaPubli.querySelector("i").classList.add("fa-solid");
+          novaPubli.querySelector(".anx").classList.remove("fa-regular");
+          novaPubli.querySelector(".anx").classList.add("fa-solid");
           novaPubli.querySelector("span").innerHTML = "Curtido";
         }
 
         if (!like) {
-          novaPubli.querySelector("i").classList.remove("fa-solid");
-          novaPubli.querySelector("i").classList.add("fa-regular");
+          novaPubli.querySelector(".anx").classList.remove("fa-solid");
+          novaPubli.querySelector(".anx").classList.add("fa-regular");
           novaPubli.querySelector("span").innerHTML = "Curtir";
+        }
+
+        if (id === userId) {
+          novaPubli.querySelector(".form-apagar").style.display = "block";
         }
 
         novaPubli.style.display = "block";

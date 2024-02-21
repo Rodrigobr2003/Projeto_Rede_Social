@@ -144,6 +144,28 @@ class Mensagem {
       console.log("Erro ao carregar comentarios: ", error);
     }
   }
+
+  async removerComentario(idUser, index, room) {
+    try {
+      const comment = await MensagemModel.findOne({ chatRoom: room });
+
+      if (!comment) {
+        throw new Error("Room do comentario não encontrado");
+      }
+
+      if (idUser !== comment.mensagem[index].idUser) {
+        throw new Error("Id da mensagem é diferente do usuário");
+      }
+
+      comment.mensagem.splice(index, 1);
+
+      await comment.save();
+
+      return comment;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 module.exports = Mensagem;
