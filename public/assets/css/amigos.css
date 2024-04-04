@@ -82,6 +82,8 @@ h2 {
   margin: 0 13px;
   border-radius: 10px;
   transition: background-color 0.3s ease-in;
+  position: relative;
+  cursor: pointer;
 }
 
 .aviso-notif {
@@ -116,9 +118,13 @@ h2 {
   font-size: 0.85em;
 }
 
-.perfil-amigo i {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; /* alinha à esquerda */
-  flex: 1;
+.perfil-amigo .btn-remove {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  border: none;
+  font-size: 1.2em;
+  background: none;
+  cursor: pointer;
 }

@@ -111,6 +111,8 @@ async function enviarNotf(room, req, type, idUserMsg) {
       tipo: type,
     };
 
+    if (notificacaoMsg.idSolicitante === idUserMsg) return;
+
     let novaNotf = new Cadastro(notificacaoMsg);
     novaNotf = await novaNotf.adicionarNotificacao(idUserMsg);
   }

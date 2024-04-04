@@ -17,16 +17,31 @@
 
             <div class="infos">
               <img class="foto-perfil" src="/profile-default.png" />
-              <div class="feed-middle">
-                <div class="detalhes-user">
-                  <p class="userName"><%= user.nome %> <%= user.sobrenome%></p>
 
-                  <p class="amigos">
-                    <% if(user.amigos.length == 1) {%> <%= user.amigos.length %>
-                    amigo <% } else{%> <%= user.amigos.length %> amigos <% }%>
-                  </p>
+              <form action="/criar-imagem" method="POST">
+                <div class="round">
+                  <input type="file" class="foto" name="foto_perfil" />
+                  <i class="fa-solid fa-camera"></i>
                 </div>
-              </div>
+
+                <div class="feed-middle">
+                  <div class="detalhes-user">
+                    <button class="submit-pfpic" type="submit">
+                      Escolher foto
+                    </button>
+
+                    <p class="userName">
+                      <%= user.nome %> <%= user.sobrenome%>
+                    </p>
+
+                    <p class="amigos">
+                      <% if(user.amigos.length == 1) {%> <%= user.amigos.length
+                      %> amigo <% } else{%> <%= user.amigos.length %> amigos <%
+                      }%>
+                    </p>
+                  </div>
+                </div>
+              </form>
 
               <div class="descricao-div">
                 <div class="descricao">

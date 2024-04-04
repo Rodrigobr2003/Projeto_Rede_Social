@@ -1,5 +1,6 @@
 const express = require("express");
 const routes = express.Router();
+const upload = require("./src/config/multer");
 
 //Requires
 const ControllerIndex = require("./src/controllers/ControllerIndex");
@@ -15,6 +16,7 @@ const ControllerPesquisa = require("./src/controllers/ControllerPesquisa");
 const ControllerSearchedProfile = require("./src/controllers/ControllerSearchedProfile");
 const ControllerEditUser = require("./src/controllers/ControllerEditarPerfil");
 const ControllerMensagens = require("./src/controllers/ControllerMensagens");
+const ControllerImagens = require("./src/controllers/ControllerImagens");
 
 //Middlewares
 const { loginRequired } = require("./src/middlewares/middlewaresGlobais");
@@ -73,5 +75,8 @@ routes.post("/exluir-notficacao", ControllerNotificacoes.excluirNotf);
 routes.get("/perfil/:id", loginRequired, ControllerPerfil.paginaPerfil);
 routes.post("/edit-user", ControllerEditUser.editUser);
 routes.get("/dados-user", ControllerPerfil.dadosUser);
+
+//Routes Imagens
+routes.post("/criar-imagem", upload.single("file"), ControllerImagens.create);
 
 module.exports = routes;

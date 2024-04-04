@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnBack = document.querySelector(".back");
   const btnSalvar = document.querySelector(".save-desc");
   const input = document.querySelector(".desc-input");
+  const inputFoto = document.querySelector(".foto");
 
   const p = document.createElement("p");
   p.innerHTML = "Adicionar descrição";
@@ -37,5 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
     btnBack.style.display = "none";
 
     if (descricao.innerHTML === "") p.style.display = "block";
+  });
+
+  inputFoto.addEventListener("change", () => {
+    document.querySelector(".submit-pfpic").style.display = "block";
   });
 });
