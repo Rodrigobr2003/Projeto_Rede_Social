@@ -18,6 +18,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+app.get("/favicon.ico", (req, res) => res.status(204));
+
 //Conectando ao mongoDB
 mongoose
   .connect(process.env.CONNECTIONSTRING)
@@ -95,8 +97,12 @@ app.use(flashMessagesMiddleware);
 app.use(routes);
 
 app.on("connection", () => {
-  server.listen(3006, () => {
+  server.listen(process.env.PORT || 3006, () => {
     console.log("Servidor está ligado");
     console.log(`Server esta operando: http://localhost:3006`);
   });
 });
+
+app.get("/favicon.ico", (req, res) => res.status(204));
+
+module.exports = server;
