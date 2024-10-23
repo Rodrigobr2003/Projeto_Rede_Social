@@ -151,3 +151,38 @@ footer {
   width: 100%;
   box-sizing: border-box;
 }
+
+/* Monitores 4K (maiores que 1920px) */
+@media (min-width: 1920px) {
+  h1 {
+    font-size: 4em;
+  }
+
+  .div-img {
+    margin: 10px 50px;
+    width: 40%;
+  }
+
+  .content {
+    width: 60%;
+  }
+
+  h2 {
+    font-size: 3.5em;
+  }
+
+  button {
+    padding: 10px 80px;
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 1em;
+    width: 40%;
+  }
+
+  h3 {
+    font-size: 3.5em;
+    margin-top: 30px;
+  }
+}
