@@ -26,6 +26,12 @@
   background-color: #bbbbbb;
 }
 
+.dados-cadastro {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 input:focus {
   outline: none;
 }
@@ -33,7 +39,6 @@ input:focus {
 .nome-sobrenome {
   display: flex;
   justify-content: center;
-  margin: 5px 0;
 }
 
 .nome-sobrenome input {
@@ -45,7 +50,7 @@ input:focus {
 
 .cadastro-div input:not(.nome-sobrenome input) {
   width: 90%;
-  margin: 5px 10px;
+  margin: 5px auto;
   border-radius: 5px;
   border: 1px solid rgb(88, 88, 88);
 }
