@@ -98,3 +98,81 @@ input:focus {
   color: azure;
   background-color: #2c3892;
 }
+
+/* Telas pequenas: celulares */
+@media (max-width: 576px) {
+  .cadastro-div {
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+  }
+
+  .nome-sobrenome input {
+    width: 40%;
+    margin: 5px auto;
+  }
+
+  .cadastro-div input:not(.nome-sobrenome input) {
+    width: 90%;
+  }
+
+  .genero div {
+    padding: 10px 20px;
+    width: 100%;
+  }
+
+  .genero div input {
+    width: 40%;
+    margin: 5px auto;
+  }
+}
+
+/* Tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+  .cadastro-div {
+    width: 70%;
+    padding: 15px;
+  }
+
+  .nome-sobrenome input {
+    width: 85%;
+  }
+
+  .cadastro-div input:not(.nome-sobrenome input) {
+    width: 95%;
+  }
+
+  .genero div {
+    padding: 10px 30px;
+    width: auto;
+  }
+}
+
+/* Laptops pequenos */
+@media (min-width: 769px) and (max-width: 992px) {
+  .cadastro-div {
+    width: 50%;
+  }
+
+  .nome-sobrenome input {
+    width: 80%;
+  }
+
+  .cadastro-div input:not(.nome-sobrenome input) {
+    width: 90%;
+  }
+}
+
+/* Monitores grandes */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .cadastro-div {
+    width: 40%;
+  }
+}
+
+/* Monitores ultra-wide */
+@media (min-width: 1201px) {
+  .cadastro-div {
+    width: 30%;
+  }
+}
