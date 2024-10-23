@@ -169,7 +169,34 @@ footer {
 }
 
 /* Grandes monitores (maiores que 1200px) */
-@media (min-width: 1200px) and (max-width: 1600px) {
+@media (min-width: 1200px) and (max-width: 1450px) {
+  h1 {
+    font-size: 2.2em;
+  }
+}
+
+/* Grandes monitores (maiores que 1200px) */
+@media (min-width: 1450px) and (max-width: 1600px) {
+  h1 {
+    font-size: 2.8em;
+  }
+
+  .div-img {
+    width: 40%;
+  }
+
+  .content {
+    width: 60%;
+  }
+
+  h2 {
+    font-size: 3em;
+  }
+
+  h3 {
+    margin-top: 30px;
+    font-size: 1.5em;
+  }
 }
 
 /* Monitores ultra-wide (1600px até 1920px) */
