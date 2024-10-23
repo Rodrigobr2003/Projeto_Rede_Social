@@ -31,6 +31,13 @@
   align-items: center;
 }
 
+.dados-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 h2 {
   margin: 0px auto;
   color: #000;
@@ -42,7 +49,7 @@ input:focus {
 
 .login-div input {
   width: 90%;
-  margin: 5px 10px;
+  margin: 5px 0;
   border-radius: 5px;
   border: 1px solid rgb(88, 88, 88);
 }
@@ -67,4 +74,54 @@ input:focus {
 .btn-div button:hover {
   color: azure;
   background-color: #2c3892;
+}
+
+/* Telas pequenas: celulares */
+@media (max-width: 576px) {
+  .login-div {
+    width: 90%;
+    padding: 10px;
+  }
+  .login-div input {
+    width: 100%;
+  }
+  .text-div {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+  .login-div {
+    width: 70%;
+    padding: 15px;
+  }
+  .login-div input {
+    width: 95%;
+  }
+}
+
+/* Laptops pequenos */
+@media (min-width: 769px) and (max-width: 992px) {
+  .login-div {
+    width: 50%;
+  }
+  .login-div input {
+    width: 90%;
+  }
+}
+
+/* Monitores grandes */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .login-div {
+    width: 40%;
+  }
+}
+
+/* Monitores ultra-wide */
+@media (min-width: 1201px) {
+  .login-div {
+    width: 30%;
+  }
 }
