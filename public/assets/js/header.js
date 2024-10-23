@@ -3,6 +3,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const divPesquisa = document.querySelector(".div-pesquisa");
   const input = document.querySelector("#inputPesquisa");
   let modalPesquisa = document.querySelector(".modal-pesquisa");
+  const menuIcon = document.getElementById("menu-icon");
+  const navMenu = document.getElementById("nav-menu");
+
+  menuIcon.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    menuIcon.classList.toggle("open");
+
+    const bars = menuIcon.querySelectorAll(".bar");
+    if (navMenu.classList.contains("active")) {
+      bars[0].style.transform = "rotate(45deg) translate(5px, 5px)";
+      bars[1].style.opacity = "0";
+      bars[2].style.transform = "rotate(-45deg) translate(5px, -5px)";
+    } else {
+      bars[0].style.transform = "rotate(0) translate(0, 0)";
+      bars[1].style.opacity = "1";
+      bars[2].style.transform = "rotate(0) translate(0, 0)";
+    }
+  });
 
   formSearchBar.addEventListener("click", (event) => {
     event.stopPropagation();

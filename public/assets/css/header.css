@@ -79,6 +79,23 @@ li {
   flex-direction: column;
 }
 
+.menu-icon {
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  margin-left: auto;
+}
+
+.bar {
+  height: 4px;
+  background-color: #2c3892;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
 .div-user {
   display: none;
   background-color: #fff;
@@ -103,6 +120,42 @@ li {
   font-weight: 0;
 }
 
+.nav-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background-color: #ffffff;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav-menu.active {
+  display: block;
+}
+
+.nav-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-menu ul li {
+  padding: 10px;
+  text-align: center;
+}
+
+.nav-menu ul li a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+}
+
+.nav-menu ul li a:hover {
+  background-color: #e2e3e6;
+  color: #51ade5;
+}
+
 /* Telas pequenas: celulares */
 @media (max-width: 576px) {
   header {
@@ -111,20 +164,26 @@ li {
     padding: 5px 0;
   }
   .logo {
-    width: 20%;
-    padding-left: 5%;
+    display: none;
   }
   .div-pesquisa {
     width: 90%;
     margin: 10px auto;
+    display: flex;
+    flex-direction: row;
+  }
+  .div-pesquisa input {
+    width: 180%;
+  }
+  .menu-icon {
+    display: flex;
+    margin-top: 2.5%;
   }
   input {
     width: 100%;
   }
   .list {
-    margin: 10px 0 0 0;
-    width: 100%;
-    justify-content: center;
+    display: none;
   }
   ul {
     flex-direction: column;
