@@ -102,3 +102,100 @@ li {
   margin-left: 10px;
   font-weight: 0;
 }
+
+/* Telas pequenas: celulares */
+@media (max-width: 576px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px 0;
+  }
+  .logo {
+    width: 20%;
+    padding-left: 5%;
+  }
+  .div-pesquisa {
+    width: 90%;
+    margin: 10px auto;
+  }
+  input {
+    width: 100%;
+  }
+  .list {
+    margin: 10px 0 0 0;
+    width: 100%;
+    justify-content: center;
+  }
+  ul {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .nav-icon {
+    margin: 5px 0;
+  }
+}
+
+/* Tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+  header {
+    padding: 10px 0;
+  }
+  .logo {
+    width: 15%;
+  }
+  .div-pesquisa {
+    width: 70%;
+  }
+  input {
+    width: 90%;
+  }
+  .list {
+    margin-right: 5%;
+  }
+  ul {
+    padding: 0;
+  }
+}
+
+/* Laptops pequenos */
+@media (min-width: 769px) and (max-width: 992px) {
+  .logo {
+    width: 10%;
+  }
+  .div-pesquisa {
+    width: 60%;
+  }
+  input {
+    width: 80%;
+  }
+  .list {
+    margin-right: 5%;
+  }
+}
+
+/* Monitores grandes */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .logo {
+    width: 8%;
+  }
+  .div-pesquisa {
+    width: 50%;
+  }
+  input {
+    width: 70%;
+  }
+}
+
+/* Monitores ultra-wide */
+@media (min-width: 1201px) {
+  .logo {
+    width: 4.5%;
+  }
+  .div-pesquisa {
+    width: 20%;
+  }
+  input {
+    width: 85%;
+  }
+}
