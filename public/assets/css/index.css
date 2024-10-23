@@ -152,6 +152,31 @@ footer {
   box-sizing: border-box;
 }
 
+/* Mobile phones (menores que 576px) */
+@media (max-width: 576px) {
+}
+
+/* Tablets (576px até 768px) */
+@media (min-width: 576px) and (max-width: 768px) {
+}
+
+/* Laptops pequenos (768px até 992px) */
+@media (min-width: 768px) and (max-width: 992px) {
+}
+
+/* Desktops (992px até 1200px) */
+@media (min-width: 992px) and (max-width: 1200px) {
+}
+
+/* Grandes monitores (maiores que 1200px) */
+@media (min-width: 1200px) and (max-width: 1600px) {
+}
+
+/* Monitores ultra-wide (1600px até 1920px) */
+@media (min-width: 1600px) and (max-width: 1920px) {
+  /* Estilos para monitores ultra-wide */
+}
+
 /* Monitores 4K (maiores que 1920px) */
 @media (min-width: 1920px) {
   h1 {
