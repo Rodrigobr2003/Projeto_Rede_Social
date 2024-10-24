@@ -120,13 +120,13 @@ section {
 
 .form-apagar {
   display: none;
+  margin: 0 auto;
 }
 
 .apagar {
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: 330px;
 }
 
 .apagar i {
@@ -302,12 +302,17 @@ section {
     font-size: 0.9em;
   }
 
-  .div-actions button {
-    font-size: 1.3em;
-  }
-
   .comentarios {
     height: 250px;
+  }
+
+  .publi {
+    width: 70%;
+  }
+
+  .div-actions button {
+    font-size: 1.5em;
+    margin: 0 5px;
   }
 }
 

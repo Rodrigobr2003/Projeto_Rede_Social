@@ -4,7 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (window.screen.width <= 500) {
     const inputForm = document.querySelector("#msg");
+    const actBtn = document.querySelectorAll("span");
+
     inputForm.placeholder = "Publique algo...";
+
+    actBtn.forEach((span) => {
+      span.innerText = "";
+    });
   }
 
   fetch("/dados-user", { method: "GET" })
@@ -301,12 +307,20 @@ document.addEventListener("DOMContentLoaded", () => {
           novaPubli.querySelector(".anx").classList.remove("fa-regular");
           novaPubli.querySelector(".anx").classList.add("fa-solid");
           novaPubli.querySelector("span").innerHTML = "Curtido";
+
+          if (screen.width <= 413) {
+            novaPubli.querySelector("span").innerHTML = "";
+          }
         }
 
         if (!like) {
           novaPubli.querySelector(".anx").classList.remove("fa-solid");
           novaPubli.querySelector(".anx").classList.add("fa-regular");
           novaPubli.querySelector("span").innerHTML = "Curtir";
+
+          if (screen.width <= 413) {
+            novaPubli.querySelector("span").innerHTML = "";
+          }
         }
 
         if (id === userId) {
