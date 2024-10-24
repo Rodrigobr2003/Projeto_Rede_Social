@@ -29,7 +29,6 @@ footer {
 
 .contato:has(p) {
   font-size: 1.5em;
-  white-space: nowrap;
 }
 
 @media (max-width: 768px) {
@@ -56,6 +55,10 @@ footer {
 
   .icone {
     font-size: 20px;
+  }
+
+  .contato {
+    width: 50%;
   }
 
   .contato:has(p) {
