@@ -179,9 +179,6 @@ li {
     display: flex;
     margin-top: 2.5%;
   }
-  input {
-    width: 100%;
-  }
   .list {
     display: none;
   }
@@ -192,6 +189,10 @@ li {
   }
   .nav-icon {
     margin: 5px 0;
+  }
+  .modal-pesquisa {
+    width: 60%;
+    margin: 50px auto;
   }
 }
 
@@ -206,14 +207,14 @@ li {
   .div-pesquisa {
     width: 70%;
   }
-  input {
-    width: 90%;
-  }
   .list {
     margin-right: 5%;
   }
   ul {
     padding: 0;
+  }
+  .modal-pesquisa {
+    width: 35%;
   }
 }
 
@@ -225,11 +226,11 @@ li {
   .div-pesquisa {
     width: 60%;
   }
-  input {
-    width: 80%;
-  }
   .list {
     margin-right: 5%;
+  }
+  .modal-pesquisa {
+    width: 45%;
   }
 }
 
@@ -241,8 +242,12 @@ li {
   .div-pesquisa {
     width: 50%;
   }
-  input {
-    width: 70%;
+  .div-pesquisa input {
+    width: 60%;
+    margin: 0 20px;
+  }
+  .modal-pesquisa {
+    width: 35%;
   }
 }
 
@@ -253,8 +258,5 @@ li {
   }
   .div-pesquisa {
     width: 20%;
-  }
-  input {
-    width: 85%;
   }
 }
