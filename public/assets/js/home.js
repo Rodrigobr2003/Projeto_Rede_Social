@@ -2,6 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".input-atividade");
   const feedChat = document.querySelector(".feed-chat");
 
+  if (window.screen.width <= 500) {
+    const inputForm = document.querySelector("#msg");
+    inputForm.placeholder = "Publique algo...";
+  }
+
   fetch("/dados-user", { method: "GET" })
     .then((response) => response.json())
     .then(async (data) => {

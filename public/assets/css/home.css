@@ -270,3 +270,147 @@ section {
   padding-left: 10px;
   width: 90%;
 }
+
+/* Telas pequenas: celulares */
+@media (max-width: 576px) {
+  .feed {
+    width: 90%;
+  }
+
+  .feed-chat {
+    height: 100vh;
+  }
+
+  .foto-perfil {
+    width: 15%;
+  }
+
+  .input-atividade {
+    width: 100%;
+  }
+
+  .anexos {
+    flex-direction: column;
+  }
+
+  .anexos a {
+    font-size: 1.1em;
+    border-radius: 8px;
+  }
+
+  .curtidas p {
+    font-size: 0.9em;
+  }
+
+  .div-actions button {
+    font-size: 1.3em;
+  }
+
+  .comentarios {
+    height: 250px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+  .feed {
+    width: 80%;
+  }
+
+  .feed-chat {
+    height: 110vh;
+  }
+
+  .foto-perfil {
+    width: 12%;
+  }
+
+  .input-atividade {
+    width: 95%;
+  }
+
+  .div-actions button {
+    font-size: 1.5em;
+  }
+
+  .comentarios {
+    height: 270px;
+  }
+}
+
+/* Laptops pequenos */
+@media (min-width: 769px) and (max-width: 992px) {
+  .feed {
+    width: 70%;
+  }
+
+  .feed-chat {
+    height: 120vh;
+  }
+
+  .foto-perfil {
+    width: 10%;
+  }
+
+  .input-atividade {
+    width: 90%;
+  }
+
+  .div-actions button {
+    font-size: 1.6em;
+  }
+
+  .comentarios {
+    height: 280px;
+  }
+}
+
+/* Monitores grandes */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .feed {
+    width: 60%;
+  }
+
+  .feed-chat {
+    height: 130vh;
+  }
+
+  .foto-perfil {
+    width: 8%;
+  }
+
+  .input-atividade {
+    width: 85%;
+  }
+
+  .comentarios {
+    height: 300px;
+  }
+}
+
+/* Monitores ultra-wide */
+@media (min-width: 1201px) {
+  .feed {
+    width: 55%;
+  }
+
+  .feed-chat {
+    height: 140vh;
+  }
+
+  .foto-perfil {
+    width: 7%;
+  }
+
+  .input-atividade {
+    width: 80%;
+  }
+
+  .div-actions button {
+    font-size: 1.7em;
+  }
+
+  .comentarios {
+    height: 300px;
+  }
+}
