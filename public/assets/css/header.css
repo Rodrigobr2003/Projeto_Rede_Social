@@ -173,7 +173,7 @@ li {
     flex-direction: row;
   }
   .div-pesquisa input {
-    width: 180%;
+    width: 120%;
   }
   .menu-icon {
     display: flex;
