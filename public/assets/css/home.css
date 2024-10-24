@@ -272,7 +272,56 @@ section {
 }
 
 /* Telas pequenas: celulares */
-@media (max-width: 576px) {
+@media (max-width: 413px) {
+  .feed {
+    width: 90%;
+  }
+
+  .feed-chat {
+    height: 100vh;
+  }
+
+  .foto-perfil {
+    width: 15%;
+  }
+
+  .input-atividade {
+    width: 100%;
+  }
+
+  .anexos {
+    flex-direction: column;
+  }
+
+  .anexos a {
+    font-size: 1.1em;
+    border-radius: 8px;
+  }
+
+  .curtidas p {
+    font-size: 0.9em;
+  }
+
+  .comentarios {
+    height: 250px;
+  }
+
+  .publi {
+    width: 70%;
+  }
+
+  .div-actions button {
+    font-size: 1.5em;
+    margin: 0 5px;
+  }
+
+  .apagar {
+    margin-right: 30px;
+  }
+}
+
+/* Telas pequenas: celulares */
+@media (min-width: 414px) and (max-width: 576px) {
   .feed {
     width: 90%;
   }
