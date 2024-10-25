@@ -41,6 +41,7 @@ h2 {
   float: left;
   border-radius: 10px;
   transition: background-color 0.3s ease-in;
+  width: 100%;
 }
 
 .background-image-div {
@@ -48,9 +49,10 @@ h2 {
 }
 
 .background-image {
-  width: 590px;
+  width: 100%;
   height: 200px;
   border-radius: 10px 10px 0 0;
+  object-fit: cover;
 }
 
 .edit-button {
@@ -87,13 +89,21 @@ h2 {
   font-size: 0.9em;
 }
 
+.photos-div {
+  display: block;
+  position: relative;
+  width: 20%;
+  transform: translate(-20%, -65%);
+  margin: 0 20px;
+}
+
 .foto-perfil {
-  width: 7%;
+  width: 80%;
   border-radius: 70px;
   border: 5px solid #fff;
-  position: absolute;
-  top: 42%;
-  right: 62%;
+  object-fit: contain;
+  display: flex;
+  margin: 0 20px;
 }
 
 .round {
@@ -101,11 +111,12 @@ h2 {
   background: #00b4ff;
   width: 32px;
   height: 32px;
-  line-height: 33px;
+  line-height: 32px;
   text-align: center;
   border-radius: 50%;
   overflow: hidden;
   border: 5px solid #fff;
+  transform: translate(-5%, -100%);
 }
 
 .round input[type="file"] {
@@ -120,16 +131,11 @@ input[type="file"]::-webkit-file-upload-button {
 
 .feed-middle {
   display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 
-.detalhes-user {
-  display: flex;
-  float: left;
-  flex-direction: column;
-}
-
-.detalhes-user button[type="submit"] {
+.photos-div button[type="submit"] {
   display: none; /*block*/
   padding: 5px;
   border: none;
@@ -137,6 +143,10 @@ input[type="file"]::-webkit-file-upload-button {
   background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;
   font-size: 16px;
+}
+
+.dados {
+  margin: 0 20px;
 }
 
 .add {
