@@ -1,12 +1,16 @@
 body {
   background-image: linear-gradient(to top, #f0f2f5, #e6e7e9, #dedfe0, #d5d6d6);
   background-repeat: no-repeat;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 section {
   display: flex;
   justify-content: center;
-  height: 70vh;
+  flex: 1;
 }
 
 .feed {
@@ -56,6 +60,8 @@ h2 {
 }
 
 .perfil-amigo {
+  margin: 15px 0;
+  height: 250px;
   margin: 15px 0;
 }
 
@@ -168,4 +174,180 @@ h2 {
 
 .apagar i {
   font-size: 20px;
+}
+
+@media (max-width: 350px) {
+  section {
+    height: auto;
+    padding: 10px;
+  }
+
+  .feed {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .feed-top {
+    font-size: 1em;
+  }
+
+  h2 {
+    margin: 0 20px;
+    font-size: 1.2em;
+  }
+
+  .aviso-notif {
+    font-size: 1em;
+  }
+
+  .feed-default {
+    width: 100%;
+    height: 100%;
+  }
+
+  .perfil-amigo {
+    height: 150px;
+  }
+
+  .foto-perfil {
+    width: 20%;
+  }
+
+  .infos p:nth-of-type(1) {
+    font-size: 1em;
+  }
+
+  .infos p:nth-of-type(2) {
+    font-size: 0.75em;
+  }
+}
+
+/* Telas pequenas: celulares */
+@media (min-width: 350px) and (max-width: 576px) {
+  section {
+    height: auto;
+    padding: 10px;
+  }
+
+  .feed {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .feed-top {
+    font-size: 1em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin: 0 20px;
+  }
+
+  .feed-default {
+    width: 100%;
+    height: 100%;
+  }
+
+  .foto-perfil {
+    width: 20%;
+  }
+
+  .infos p:nth-of-type(1) {
+    font-size: 1em;
+  }
+
+  .infos p:nth-of-type(2) {
+    font-size: 0.75em;
+  }
+
+  .perfil-amigo {
+    height: 150px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+  .feed {
+    width: 80%;
+  }
+
+  .feed-top {
+    font-size: 1.1em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+    margin: 0 40px;
+  }
+
+  .feed-default {
+    width: 90%;
+    height: 100%;
+  }
+
+  .foto-perfil {
+    width: 15%;
+  }
+
+  .perfil-amigo {
+    height: 200px;
+  }
+}
+
+/* Laptops pequenos */
+@media (min-width: 769px) and (max-width: 992px) {
+  .feed {
+    width: 70%;
+  }
+
+  .feed-top {
+    font-size: 1.2em;
+  }
+
+  h2 {
+    font-size: 2em;
+    margin: 0 50px;
+  }
+
+  .feed-default {
+    width: 80%;
+    height: 100%;
+  }
+
+  .foto-perfil {
+    width: 12%;
+  }
+
+  .perfil-amigo {
+    height: 250px;
+  }
+}
+
+/* Monitores grandes */
+@media (min-width: 993px) {
+  .feed {
+    width: 55%;
+  }
+
+  .feed-top {
+    font-size: 1.3em;
+  }
+
+  h2 {
+    margin: 0 60px;
+    font-size: 2.4em;
+  }
+
+  .feed-default {
+    width: 70%;
+    height: 100%;
+  }
+
+  .foto-perfil {
+    width: 10%;
+  }
+
+  .perfil-amigo {
+    height: 300px;
+  }
 }
