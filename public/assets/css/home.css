@@ -43,6 +43,11 @@ section {
 .perfil-feed {
   display: flex;
   align-items: center;
+}
+
+.perfil-feed:has(form[method="POST"]) {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -410,9 +415,6 @@ section {
 
   .input-atividade {
     width: 90%;
-  }
-
-  .apagar {
   }
 
   .div-actions button {
