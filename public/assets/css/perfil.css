@@ -23,7 +23,7 @@ h2 {
 .feed-default {
   background-color: #fff;
   align-self: flex-start;
-  padding: 0px 0px 20px;
+  padding: 0 0 20px;
   border-radius: 10px;
   width: 80%;
   margin: 0 auto;
@@ -31,16 +31,14 @@ h2 {
 }
 
 .perfil-feed {
-  margin: 0px 0;
+  margin: 0 0;
   display: flex;
 }
 
 .perfil {
   display: flex;
   flex-direction: column;
-  float: left;
   border-radius: 10px;
-  transition: background-color 0.3s ease-in;
   width: 100%;
 }
 
@@ -111,11 +109,13 @@ h2 {
   background: #00b4ff;
   width: 32px;
   height: 32px;
-  line-height: 32px;
   text-align: center;
   border-radius: 50%;
   overflow: hidden;
   border: 5px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transform: translate(-5%, -100%);
 }
 
@@ -179,6 +179,14 @@ button {
   cursor: pointer;
 }
 
+.interacao button {
+  padding: 12px;
+}
+
+.interacao button:hover {
+  background-color: #2c3892;
+}
+
 .interacao button:nth-of-type(1) {
   padding: 12px;
 }
@@ -204,6 +212,7 @@ button {
 .editar-desc {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .btn {
@@ -225,7 +234,7 @@ button {
   background: none;
   border-bottom: 2px solid gray;
   border-radius: 0px;
-  width: 350px;
+  width: 100%;
   margin: 0 10px;
   display: none;
 }
@@ -244,13 +253,14 @@ button {
 }
 
 .img {
-  background-color: aquamarine;
   display: flex;
   justify-content: center;
   font-size: 2em;
   align-items: center;
   border: 1.5px solid #fff;
   background-image: url("/photo-default.png");
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   height: 165px;
 }
@@ -309,4 +319,421 @@ button {
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 4;
+}
+
+@media (max-width: 475px) {
+  .feed {
+    width: 100%;
+  }
+
+  .feed-middle {
+    justify-content: start;
+  }
+
+  .photos-div {
+    width: 10% !important;
+  }
+
+  .dados {
+    margin-left: 10%;
+  }
+
+  .userName {
+    font-size: 1.2em !important;
+  }
+
+  .amigos {
+    font-size: 0.8em !important;
+  }
+
+  .edit-button {
+    left: 50%;
+    font-size: 0.8em;
+  }
+
+  .feed-middle {
+    height: 70px;
+  }
+
+  .descricao-div {
+    width: 100%;
+    font-size: 0.8em;
+  }
+
+  .desc-input {
+    width: 100px;
+  }
+
+  .save-desc {
+    font-size: 1em;
+    padding: 2px 10px;
+  }
+
+  .photos-div {
+    width: 25%;
+    transform: translate(-20%, -60%);
+  }
+
+  .foto-perfil {
+    width: 280%;
+    border-radius: 70px;
+    transform: translate(-50%, -15%);
+  }
+
+  .round {
+    width: 32px;
+    height: 32px;
+    transform: translate(-85%, -135%);
+  }
+
+  .round i {
+    font-size: 0.8em;
+  }
+}
+
+/* Telas pequenas: celulares */
+@media (min-width: 476px) and (max-width: 576px) {
+  .feed {
+    width: 100%;
+  }
+
+  .feed-middle {
+    justify-content: start;
+  }
+
+  .photos-div {
+    width: 10% !important;
+  }
+
+  .dados {
+    margin-left: 10%;
+  }
+
+  .userName {
+    font-size: 1.2em !important;
+  }
+
+  .amigos {
+    font-size: 0.8em !important;
+  }
+
+  .edit-button {
+    left: 55%;
+  }
+
+  .feed-middle {
+    height: 70px;
+  }
+
+  .desc-input {
+    width: 100px;
+  }
+
+  .save-desc {
+    font-size: 1em;
+    padding: 2px 10px;
+  }
+
+  .photos-div {
+    width: 25%;
+    transform: translate(-20%, -60%);
+  }
+
+  .foto-perfil {
+    width: 230%;
+    border-radius: 70px;
+    transform: translate(-30%, -20%);
+  }
+
+  .round {
+    width: 32px;
+    height: 32px;
+    transform: translate(-45%, -155%);
+  }
+
+  .round i {
+    font-size: 0.8em;
+  }
+
+  .editar-desc {
+    font-size: 0.8em !important;
+  }
+
+  .img {
+    height: 100px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 577px) and (max-width: 868px) {
+  .feed {
+    width: 100%;
+  }
+
+  .feed-middle {
+    justify-content: start;
+  }
+
+  .photos-div {
+    width: 10% !important;
+  }
+
+  .dados {
+    margin-left: 10%;
+  }
+
+  .userName {
+    font-size: 1.5em !important;
+  }
+
+  .amigos {
+    font-size: 1em !important;
+  }
+
+  .edit-button {
+    left: 71%;
+  }
+
+  .feed-middle {
+    height: 60px;
+  }
+
+  .desc-input {
+    width: 200px;
+  }
+
+  .photos-div {
+    width: 25%;
+    transform: translate(-20%, -60%);
+  }
+
+  .foto-perfil {
+    width: 230%;
+    border-radius: 70px;
+    transform: translate(-30%, -30%);
+  }
+
+  .round {
+    width: 42px;
+    height: 42px;
+    transform: translate(-65%, -175%);
+  }
+
+  .round i {
+    font-size: 1em;
+  }
+
+  .editar-desc {
+    font-size: 1em !important;
+  }
+
+  .img {
+    height: 120px;
+  }
+}
+
+/* Laptops pequenos */
+@media (min-width: 869px) and (max-width: 1099px) {
+  .feed {
+    width: 100%;
+  }
+
+  .feed-middle {
+    justify-content: start;
+  }
+
+  .photos-div {
+    width: 10% !important;
+  }
+
+  .dados {
+    margin-left: 10%;
+  }
+
+  .userName {
+    font-size: 1.8em !important;
+  }
+
+  .amigos {
+    font-size: 1em !important;
+  }
+
+  .edit-button {
+    left: 77%;
+  }
+
+  .feed-middle {
+    height: 80px;
+  }
+
+  .desc-input {
+    width: 350px;
+  }
+
+  .photos-div {
+    width: 25%;
+    transform: translate(-20%, -60%);
+  }
+
+  .foto-perfil {
+    width: 150%;
+    border-radius: 70px;
+    transform: translate(-5%, -25%);
+  }
+
+  .round {
+    width: 42px;
+    height: 42px;
+    transform: translate(-15%, -155%);
+  }
+
+  .round i {
+    font-size: 1.1em;
+  }
+
+  .editar-desc {
+    font-size: 1em !important;
+  }
+
+  .img {
+    height: 120px;
+  }
+}
+
+/* Monitores grandes */
+@media (min-width: 1100px) and (max-width: 1400px) {
+  .userName {
+    font-size: 1.5em !important;
+  }
+
+  .amigos {
+    font-size: 1.2em !important;
+  }
+
+  .edit-button {
+    left: 72%;
+  }
+
+  .feed-middle {
+    height: 80px;
+  }
+
+  .photos-div {
+    width: 25%;
+    transform: translate(-20%, -60%);
+  }
+
+  .foto-perfil {
+    width: 80%;
+    border-radius: 70px;
+  }
+
+  .round {
+    width: 42px;
+    height: 42px;
+  }
+
+  .round i {
+    font-size: 1.2em;
+  }
+
+  .editar-desc {
+    font-size: 1em !important;
+  }
+
+  .img {
+    height: 180px;
+  }
+}
+
+/* Monitores ultra-wide */
+@media (min-width: 1401px) and (max-width: 1800px) {
+  .userName {
+    font-size: 2em !important;
+  }
+
+  .amigos {
+    font-size: 1.2em !important;
+  }
+
+  .edit-button {
+    left: 76%;
+  }
+
+  .feed-middle {
+    height: 100px;
+  }
+
+  .photos-div {
+    width: 25%;
+    transform: translate(-20%, -60%);
+  }
+
+  .foto-perfil {
+    width: 80%;
+    border-radius: 90px;
+  }
+
+  .round {
+    width: 62px;
+    height: 62px;
+  }
+
+  .round i {
+    font-size: 1.6em;
+  }
+
+  .editar-desc {
+    font-size: 1.3em !important;
+  }
+
+  .img {
+    height: 210px;
+  }
+}
+
+/* Monitores ultra-wide */
+@media (min-width: 1801px) {
+  .userName {
+    font-size: 2.8em !important;
+  }
+
+  .amigos {
+    font-size: 1.5em !important;
+  }
+
+  .edit-button {
+    left: 83%;
+  }
+
+  .feed-middle {
+    height: 130px;
+  }
+
+  .photos-div {
+    width: 25%;
+    transform: translate(-20%, -60%);
+  }
+
+  .foto-perfil {
+    width: 80%;
+    border-radius: 90px;
+  }
+
+  .round {
+    width: 62px;
+    height: 62px;
+  }
+
+  .round i {
+    font-size: 1.6em;
+  }
+
+  .editar-desc {
+    font-size: 1.6em !important;
+  }
+
+  .img {
+    height: 260px;
+  }
 }
