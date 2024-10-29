@@ -139,3 +139,205 @@ a {
   background-color: #fff;
   outline: none;
 }
+
+/* Media Queries para Layout Responsivo */
+@media (max-width: 475px) {
+  .feed {
+    width: 100%;
+    padding: 10px;
+  }
+
+  h2 {
+    margin: 0 20px;
+  }
+
+  .feed-default {
+    width: 90%;
+  }
+
+  .foto-perfil {
+    width: 10%;
+  }
+
+  .nomeUser {
+    font-size: 1.2em;
+  }
+
+  .chat {
+    height: 300px;
+  }
+
+  .msg {
+    width: 90%;
+  }
+
+  .enviar-msg {
+    padding: 5px;
+  }
+
+  .enviar-msg button {
+    font-size: 20px;
+  }
+
+  .enviar-msg input {
+    font-size: 0.9em;
+  }
+}
+
+@media (min-width: 476px) and (max-width: 576px) {
+  .feed {
+    width: 100%;
+  }
+
+  .feed-default {
+    width: 95%;
+  }
+
+  .foto-perfil {
+    width: 10%;
+  }
+
+  .nomeUser {
+    font-size: 1.4em;
+  }
+
+  .chat {
+    height: 350px;
+  }
+
+  .msg {
+    width: 85%;
+  }
+
+  .enviar-msg button {
+    font-size: 22px;
+  }
+
+  .enviar-msg input {
+    font-size: 1em;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 868px) {
+  .feed {
+    width: 80%;
+  }
+
+  .feed-default {
+    width: 90%;
+  }
+
+  .foto-perfil {
+    width: 8%;
+  }
+
+  .nomeUser {
+    font-size: 1.6em;
+  }
+
+  .chat {
+    height: 400px;
+  }
+
+  .msg {
+    width: 80%;
+  }
+
+  .enviar-msg button {
+    font-size: 24px;
+  }
+
+  .enviar-msg input {
+    font-size: 1.1em;
+  }
+}
+
+@media (min-width: 869px) and (max-width: 1099px) {
+  .feed {
+    width: 60%;
+  }
+
+  .foto-perfil {
+    width: 6%;
+  }
+
+  .nomeUser {
+    font-size: 1.8em;
+  }
+
+  .chat {
+    height: 450px;
+  }
+
+  .msg {
+    width: 75%;
+  }
+
+  .enviar-msg button {
+    font-size: 25px;
+  }
+
+  .enviar-msg input {
+    font-size: 1.2em;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1400px) {
+  .feed {
+    width: 55%;
+  }
+
+  .foto-perfil {
+    width: 5%;
+  }
+
+  .nomeUser {
+    font-size: 1.8em;
+  }
+
+  .chat {
+    height: 500px;
+  }
+
+  .msg {
+    width: 70%;
+  }
+
+  .enviar-msg button {
+    font-size: 26px;
+  }
+
+  .enviar-msg input {
+    font-size: 1.3em;
+  }
+}
+
+@media (min-width: 1401px) {
+  .feed {
+    width: 50%;
+  }
+
+  .foto-perfil {
+    width: 4%;
+  }
+
+  .nomeUser {
+    font-size: 2em;
+  }
+
+  .chat {
+    height: 600px;
+  }
+
+  .msg {
+    width: 65%;
+  }
+
+  .enviar-msg button {
+    font-size: 27px;
+  }
+
+  .enviar-msg input {
+    font-size: 1.4em;
+  }
+}
