@@ -508,15 +508,15 @@ button {
   }
 
   .foto-perfil {
-    width: 230%;
+    width: 200%;
     border-radius: 70px;
-    transform: translate(-30%, -30%);
+    transform: translate(-20%, -30%);
   }
 
   .round {
     width: 42px;
     height: 42px;
-    transform: translate(-65%, -175%);
+    transform: translate(-45%, -145%);
   }
 
   .round i {
