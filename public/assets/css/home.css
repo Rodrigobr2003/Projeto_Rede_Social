@@ -43,6 +43,7 @@ section {
 .perfil-feed {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .foto-perfil {
@@ -120,13 +121,14 @@ section {
 
 .form-apagar {
   display: none;
-  margin: 0 auto;
+  margin-left: auto;
 }
 
 .apagar {
   background: none;
   border: none;
   cursor: pointer;
+  margin-right: 40px;
 }
 
 .apagar i {
@@ -408,6 +410,9 @@ section {
 
   .input-atividade {
     width: 90%;
+  }
+
+  .apagar {
   }
 
   .div-actions button {
