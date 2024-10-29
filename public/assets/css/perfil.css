@@ -320,7 +320,7 @@ button {
   grid-row-end: 4;
 }
 
-@media (max-width: 475px) {
+@media (max-width: 399px) {
   .feed {
     width: 100%;
   }
@@ -354,7 +354,100 @@ button {
   }
 
   .feed-middle {
-    height: 70px;
+    height: 95px;
+  }
+
+  .descricao-div {
+    width: 100%;
+    font-size: 0.8em;
+  }
+
+  .desc-input {
+    width: 200px;
+  }
+
+  .save-desc {
+    font-size: 1em;
+    padding: 2px 10px;
+  }
+
+  .photos-div {
+    width: 25%;
+    transform: translate(-20%, -60%);
+  }
+
+  .foto-perfil {
+    width: 220%;
+    border-radius: 70px;
+    transform: translate(-30%, -15%);
+  }
+
+  .round {
+    width: 32px;
+    height: 32px;
+    transform: translate(-45%, -130%);
+  }
+
+  .round i {
+    font-size: 1em;
+  }
+
+  .add {
+    margin: 0 0 0 35px;
+  }
+
+  .interacao button i {
+    font-size: 0.8em;
+  }
+
+  .interacao button {
+    border-radius: 180px;
+  }
+
+  .interacao button:nth-of-type(1) {
+    padding: 7.5px 9.5px;
+  }
+
+  .userName {
+    font-size: 1.4em !important;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 475px) {
+  .feed {
+    width: 100%;
+  }
+
+  .feed-default {
+    width: 100%;
+  }
+
+  .feed-middle {
+    justify-content: start;
+  }
+
+  .photos-div {
+    width: 10% !important;
+  }
+
+  .dados {
+    margin-left: 10%;
+  }
+
+  .userName {
+    font-size: 1.3em !important;
+  }
+
+  .amigos {
+    font-size: 1em !important;
+  }
+
+  .edit-button {
+    left: 62%;
+  }
+
+  .feed-middle {
+    height: 80px;
   }
 
   .descricao-div {
