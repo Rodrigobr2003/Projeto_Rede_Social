@@ -90,7 +90,7 @@ h2 {
 .photos-div {
   display: block;
   position: relative;
-  width: 20%;
+  width: 1%;
   transform: translate(-20%, -65%);
   margin: 0 20px;
 }
@@ -132,7 +132,7 @@ input[type="file"]::-webkit-file-upload-button {
 .feed-middle {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .photos-div button[type="submit"] {
@@ -150,14 +150,13 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 .add {
-  margin: 0 0 0 120px;
+  margin: 0px;
 }
 
 .interacao {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 0 0 20px;
 }
 
 #form-add-amigo {
@@ -392,16 +391,32 @@ button {
   .round i {
     font-size: 1em;
   }
+
+  .add {
+    margin: 0 0 0 35px;
+  }
+
+  .interacao button i {
+    font-size: 0.8em;
+  }
+
+  .interacao button {
+    border-radius: 180px;
+  }
+
+  .interacao button:nth-of-type(1) {
+    padding: 7.5px 9.5px;
+  }
+
+  .userName {
+    font-size: 1.4em !important;
+  }
 }
 
 /* Telas pequenas: celulares */
 @media (min-width: 476px) and (max-width: 576px) {
   .feed {
     width: 100%;
-  }
-
-  .feed-middle {
-    justify-content: start;
   }
 
   .photos-div {
@@ -465,16 +480,32 @@ button {
   .img {
     height: 100px;
   }
+
+  .add {
+    margin: 0 0 0 35px;
+  }
+
+  .interacao button i {
+    font-size: 0.8em;
+  }
+
+  .interacao button {
+    border-radius: 180px;
+  }
+
+  .interacao button:nth-of-type(1) {
+    padding: 7.5px 9.5px;
+  }
+
+  .userName {
+    font-size: 1.4em !important;
+  }
 }
 
 /* Tablets */
 @media (min-width: 577px) and (max-width: 868px) {
   .feed {
     width: 100%;
-  }
-
-  .feed-middle {
-    justify-content: start;
   }
 
   .photos-div {
@@ -498,7 +529,7 @@ button {
   }
 
   .feed-middle {
-    height: 60px;
+    height: 70px;
   }
 
   .desc-input {
@@ -532,6 +563,14 @@ button {
 
   .img {
     height: 120px;
+  }
+
+  .add {
+    margin: 0 0 0 35px;
+  }
+
+  .userName {
+    font-size: 1.6em !important;
   }
 }
 
@@ -601,6 +640,18 @@ button {
   .img {
     height: 120px;
   }
+
+  .add {
+    margin: 0 0 0 40px;
+  }
+
+  .interacao {
+    margin: 0 0 0 10px;
+  }
+
+  .userName {
+    font-size: 2.5em !important;
+  }
 }
 
 /* Monitores grandes */
@@ -646,6 +697,10 @@ button {
 
   .img {
     height: 180px;
+  }
+
+  .userName {
+    font-size: 1.6em !important;
   }
 }
 
@@ -693,6 +748,10 @@ button {
   .img {
     height: 210px;
   }
+
+  .userName {
+    font-size: 2em !important;
+  }
 }
 
 /* Monitores ultra-wide */
@@ -738,5 +797,9 @@ button {
 
   .img {
     height: 260px;
+  }
+
+  .userName {
+    font-size: 2.5em !important;
   }
 }
