@@ -326,6 +326,10 @@ button {
     width: 100%;
   }
 
+  .feed-default {
+    width: 100%;
+  }
+
   .feed-middle {
     justify-content: start;
   }
@@ -339,16 +343,15 @@ button {
   }
 
   .userName {
-    font-size: 1.2em !important;
+    font-size: 1.3em !important;
   }
 
   .amigos {
-    font-size: 0.8em !important;
+    font-size: 1em !important;
   }
 
   .edit-button {
-    left: 50%;
-    font-size: 0.8em;
+    left: 62%;
   }
 
   .feed-middle {
@@ -361,7 +364,7 @@ button {
   }
 
   .desc-input {
-    width: 100px;
+    width: 200px;
   }
 
   .save-desc {
@@ -375,19 +378,19 @@ button {
   }
 
   .foto-perfil {
-    width: 280%;
+    width: 220%;
     border-radius: 70px;
-    transform: translate(-50%, -15%);
+    transform: translate(-30%, -15%);
   }
 
   .round {
     width: 32px;
     height: 32px;
-    transform: translate(-85%, -135%);
+    transform: translate(-45%, -130%);
   }
 
   .round i {
-    font-size: 0.8em;
+    font-size: 1em;
   }
 }
 
